@@ -174,6 +174,22 @@
       }
     },
     "typographyMeta": {
+      "brand-wordmark": {
+        "displayName": "Nombre institucional",
+        "purpose": "Navaluenga en caja mixta, solo en la marca de cabecera."
+      },
+      "brand-wordmark-mobile": {
+        "displayName": "Nombre institucional móvil",
+        "purpose": "Variante de la marca de cabecera hasta 599px."
+      },
+      "brand-caption": {
+        "displayName": "Identificación institucional",
+        "purpose": "Ayuntamiento de, en mayúsculas; solo acompaña al nombre en la marca de cabecera."
+      },
+      "brand-caption-mobile": {
+        "displayName": "Identificación institucional móvil",
+        "purpose": "Variante de la identificación en mayúsculas hasta 599px."
+      },
       "display": {
         "displayName": "Nombre del lugar",
         "purpose": "NAVALUENGA, solo en el hero."
@@ -390,7 +406,7 @@
       "name": "Navegación principal",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "Muestra de destinos y estados de escritorio compartidos; Header.astro mantiene panel móvil, grupos y gestión de foco.",
+      "description": "Muestra de destinos y estados de escritorio compartidos; Header.astro mantiene panel móvil, grupos y gestión de foco. La marca de cabecera usa el escudo municipal de https://aytonavaluenga.es/wp-content/uploads/2021/07/escudo.png, conservado en src/assets/escudo-navaluenga.png y documentado en ASSETS.md, junto a Ayuntamiento de y Navaluenga; este ejemplo muestra solo los destinos.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Navegación principal\"><a href=\"/#descubrir\">Descubrir</a><a href=\"/#vivir\">Vivir aquí</a><a href=\"/tramites/\">Trámites y servicios</a><a href=\"/contacto/\">Ayuntamiento</a><a href=\"/empresas/\">Empresas</a><a class=\"ds-sede\" href=\"https://navaluenga.sedelectronica.es/\">Sede electrónica<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a></nav>",
       "css": ".ds-nav{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(.5rem,1.1vw,1.3rem);padding:0 var(--gutter);min-height:88px;background:var(--color-forest);color:var(--color-ivory);font-family:var(--font-sans);line-height:1.55;}.ds-nav a{color:inherit;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:400;transition:color 160ms;}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--color-sun);}.ds-nav .ds-sede{background:var(--color-ivory);color:var(--color-forest);border-radius:999px;padding:.55rem 1rem;font-size:.8rem;transition:background-color 160ms;}.ds-nav .ds-sede:hover{background:var(--color-sun);}.ds-icon{width:1.25em;height:1.25em;flex:none;}.ds-nav a:focus-visible{outline:3px solid currentColor;outline-offset:5px;}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none;}}"
     },

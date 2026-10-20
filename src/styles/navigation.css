@@ -5,12 +5,11 @@
 .header-home { margin-bottom: calc(-1 * var(--header-height)); background: #123728b8; }
 .header-home.is-scrolled, .header-home.menu-open { background: var(--color-forest); }
 .site-header.is-scrolled { box-shadow: 0 6px 24px #081d171c; }
-.brand, .brand-home { gap: .85rem; letter-spacing: normal; max-width: none; min-width: 0; }
-.brand-symbol { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #f6f1e554; border-radius: 50%; flex: none; }
-.brand-symbol .icon { width: 25px; height: 25px; stroke-width: 1.1; }
-.brand-lockup { display: grid; gap: .3rem; }
-.brand-location { font: 400 .55rem var(--font-sans); letter-spacing: .17em; white-space: nowrap; }
-.brand-wordmark { font: 500 1rem var(--font-sans); letter-spacing: .2em; white-space: nowrap; }
+.brand, .brand-home { gap: .9rem; letter-spacing: normal; max-width: none; min-width: 0; text-transform: none; }
+.brand-crest { display: block; width: 40px; height: auto; max-height: 68px; object-fit: contain; flex: none; }
+.brand-lockup { display: grid; gap: .2rem; padding-block: .2rem; }
+.brand-location { font: 500 .57rem/1.4 var(--font-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--color-ivory); white-space: nowrap; }
+.brand-wordmark { font: 600 1.7rem/1.1 var(--font-serif); letter-spacing: -.025em; white-space: nowrap; }
 .header-inner nav { gap: clamp(.5rem, 1.1vw, 1.3rem); }
 .header-inner nav a { font-size: .85rem; font-weight: 400; }
 .header-inner nav a::after { display: none; }
@@ -68,11 +67,10 @@
 }
 @media (max-width: 599px) {
   :root { --header-height: 76px; }
-  .brand { gap: .55rem; }
-  .brand-symbol { width: 32px; height: 32px; }
-  .brand-symbol .icon { width: 21px; height: 21px; }
-  .brand-wordmark { font-size: .78rem; letter-spacing: .16em; }
-  .brand-location { font-size: .45rem; letter-spacing: .1em; }
+  .brand { gap: .65rem; }
+  .brand-crest { width: 32px; max-height: 54px; }
+  .brand-wordmark { font-size: 1.35rem; }
+  .brand-location { font-size: .48rem; letter-spacing: .13em; }
   .menu-toggle:not([hidden]) { padding: .55rem .75rem; gap: .6rem; }
   body { padding-bottom: calc(102px + env(safe-area-inset-bottom)); }
   .quick-dock {

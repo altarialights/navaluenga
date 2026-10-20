@@ -15,6 +15,30 @@ colors:
   home-paper: "#fffdf7"
   header-overlay: "#123728b8"
 typography:
+  brand-wordmark:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "1.7rem"
+    fontWeight: 600
+    lineHeight: 1.1
+    letterSpacing: "-.025em"
+  brand-wordmark-mobile:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "1.35rem"
+    fontWeight: 600
+    lineHeight: 1.1
+    letterSpacing: "-.025em"
+  brand-caption:
+    fontFamily: "DM Sans, sans-serif"
+    fontSize: ".57rem"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: ".18em"
+  brand-caption-mobile:
+    fontFamily: "DM Sans, sans-serif"
+    fontSize: ".48rem"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: ".13em"
   display:
     fontFamily: "Anton, sans-serif"
     fontSize: "clamp(3.8rem, 19.2vw, 23rem)"
@@ -205,6 +229,7 @@ El contraste entre el nombre condensado y la serif expresiva pertenece a las ref
 
 ### Hierarchy
 
+- **Marca de cabecera:** `typography.brand-wordmark` para Navaluenga en caja mixta y `typography.brand-caption` para «Ayuntamiento de» en mayúsculas. Hasta 599 px se aplican sus variantes `-mobile`. Son roles exclusivos del bloque institucional, no nuevas etiquetas editoriales.
 - **Display:** `typography.display`, solo NAVALUENGA en el hero; mayúsculas, HTML seleccionable y una línea. Usa el mismo clamp en escritorio y tablet; hasta 599 px usa (19.2vw). Su interlineado actualizado solo afecta al hero de portada.
 - **Headline:** `typography.headline`, base editorial. Cada sección ajusta su tamaño: río `clamp(3rem, 6.4vw, 7.8rem)`, experiencias `clamp(2.7rem, 5.7vw, 6.8rem)`, patrimonio `clamp(2.7rem, 7.05vw, 8.5rem)` y visita `clamp(2.8rem, 6.4vw, 7.6rem)`.
 - **Hero message:** `typography.hero-message`, «Hay lugares que te sientan bien.». Hasta 899 px usa `clamp(2rem, 4.8vw, 3rem)` y hasta 599 px `clamp(1.9rem, 8.4vw, 2.8rem)`.
@@ -265,7 +290,7 @@ La búsqueda del directorio es el campo propio implementado: etiqueta visible, i
 
 ### Navigation
 
-Una cabecera compartida combina símbolo de río, identificación territorial/institucional y nombre permanente. Mantiene grupos Descubrir, Vivir aquí, Trámites y servicios, Ayuntamiento, además de Empresas, sede y búsqueda. En escritorio, texto funcional de (.85rem), hover solar y sede en píldora marfil; el estado actual usa solar. Los desplegables son marfil, con hover más oscuro y selección solar. En el panel móvil, los títulos de grupo usan Fraunces (1.35rem) y el estado actual conserva subrayado solar.
+Una cabecera compartida combina el escudo municipal, «Ayuntamiento de» y el nombre permanente Navaluenga. El escudo procede del [archivo del Ayuntamiento](https://aytonavaluenga.es/wp-content/uploads/2021/07/escudo.png), conservado en `src/assets/escudo-navaluenga.png` y registrado en `ASSETS.md`; no se redibuja ni se encierra en un círculo. Se presenta con ancho (40px), altura automática y máximo (68px); hasta 599 px, ancho (32px) y máximo (54px). La separación entre escudo y texto es (.9rem), o (.65rem) en móvil; las dos líneas de texto se separan (.2rem). La imagen es decorativa dentro del enlace con nombre accesible «Navaluenga, inicio». Mantiene grupos Descubrir, Vivir aquí, Trámites y servicios, Ayuntamiento, además de Empresas, sede y búsqueda. En escritorio, texto funcional de (.85rem), hover solar y sede en píldora marfil; el estado actual usa solar. Los desplegables son marfil, con hover más oscuro y selección solar. En el panel móvil, los títulos de grupo usan Fraunces (1.35rem) y el estado actual conserva subrayado solar.
 
 El botón de menú combina etiqueta y dos líneas que se convierten en aspa. Declara su estado, enfoca el primer enlace, permite Escape y devuelve el foco al control correspondiente; sus destinos siguen accesibles sin JavaScript. La marca no cambia de texto al salir del hero. El dock móvil compartido ofrece Trámites, Incidencias, Agenda y Mapa con SVG y etiquetas; hover y `aria-current="page"` resaltan la cápsula del icono en solar, y la pulsación reduce su escala a (.93). El pie no se redefine en esta actualización.
 

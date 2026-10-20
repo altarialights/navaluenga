@@ -4,6 +4,7 @@ Consulta de procedencias: 30-09-2026. Metadatos originales de Commons: `research
 
 | Archivo | Función | Autor y procedencia | Licencia / condición |
 | --- | --- | --- | --- |
+| `src/assets/escudo-navaluenga.png` | Identidad institucional de la cabecera | [Archivo del Ayuntamiento](https://aytonavaluenga.es/wp-content/uploads/2021/07/escudo.png), consultado el 20-10-2026; misma versión heráldica solicitada por el usuario | Emblema municipal, usado para identificar al Ayuntamiento. No generado ni redibujado. Astro crea WebP de 80 y 120 px; se conserva el original. |
 | `src/assets/hero-conceptual.png` | Hero inmersivo | Generada con image_gen para este proyecto | Paisaje conceptual provisional. No documental. Aviso visible en el hero y explicación en `/creditos/#hero`. No se genera patrimonio. |
 | `src/assets/hero-foliage.webp` | Dos capas de vegetación en primer plano | Generada con Imagegen el 20-10-2026; prompt en `research/hero-foliage-prompt.txt` | Recorte conceptual de roble con alfa real. No documental; identificado junto al paisaje y en créditos. |
 | `src/assets/valle.jpg` | Paisaje y caminos | David Perez (DPC), [Navaluenga 01 by-dpc](https://commons.wikimedia.org/wiki/File:Navaluenga_01_by-dpc.jpg), 2012 | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) |

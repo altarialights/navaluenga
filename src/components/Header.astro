@@ -1,5 +1,7 @@
 ---
 import Icon from './Icon.astro';
+import { Image } from 'astro:assets';
+import crest from '../assets/escudo-navaluenga.png';
 import { official } from '../data/site';
 const { home = false } = Astro.props;
 const path = Astro.url.pathname;
@@ -13,7 +15,8 @@ const groups = [
 <header class:list={['site-header', { 'header-home': home }]} data-header>
   <div class="header-inner">
     <a href="/" class:list={['brand', { 'brand-home': home }]} aria-label="Navaluenga, inicio">
-      <span class="brand-symbol" aria-hidden="true"><Icon name="river" /></span><span class="brand-lockup"><span class="brand-location">{home ? 'VALLE DEL ALBERCHE · ÁVILA' : 'AYUNTAMIENTO DE'}</span><span class="brand-wordmark">NAVALUENGA</span></span>
+      <Image class="brand-crest" src={crest} alt="" aria-hidden="true" widths={[80, 120]} sizes="(max-width: 599px) 32px, 40px" format="webp" loading="eager" />
+      <span class="brand-lockup"><span class="brand-location">Ayuntamiento de</span><span class="brand-wordmark">Navaluenga</span></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden><span>Menú</span><span class="menu-glyph" aria-hidden="true"><span></span><span></span></span></button>
     <nav id="main-navigation" aria-label="Navegación principal">

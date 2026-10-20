@@ -1,0 +1,162 @@
+[
+  {
+    "width": 320,
+    "name": "home",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 20,
+      "y": 11.40625,
+      "width": 160.015625,
+      "height": 53.1875,
+      "top": 11.40625,
+      "right": 180.015625,
+      "bottom": 64.59375,
+      "left": 20
+    }
+  },
+  {
+    "width": 320,
+    "name": "contact",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 20,
+      "y": 11.40625,
+      "width": 160.015625,
+      "height": 53.1875,
+      "top": 11.40625,
+      "right": 180.015625,
+      "bottom": 64.59375,
+      "left": 20
+    }
+  },
+  {
+    "width": 390,
+    "name": "home",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 20,
+      "y": 11.40625,
+      "width": 160.015625,
+      "height": 53.1875,
+      "top": 11.40625,
+      "right": 180.015625,
+      "bottom": 64.59375,
+      "left": 20
+    }
+  },
+  {
+    "width": 390,
+    "name": "contact",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 20,
+      "y": 11.40625,
+      "width": 160.015625,
+      "height": 53.1875,
+      "top": 11.40625,
+      "right": 180.015625,
+      "bottom": 64.59375,
+      "left": 20
+    }
+  },
+  {
+    "width": 768,
+    "name": "home",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 27.25,
+      "y": 6.75,
+      "width": 202.515625,
+      "height": 66.5,
+      "top": 6.75,
+      "right": 229.765625,
+      "bottom": 73.25,
+      "left": 27.25
+    }
+  },
+  {
+    "width": 768,
+    "name": "contact",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 27.25,
+      "y": 6.75,
+      "width": 202.515625,
+      "height": 66.5,
+      "top": 6.75,
+      "right": 229.765625,
+      "bottom": 73.25,
+      "left": 27.25
+    }
+  },
+  {
+    "width": 1200,
+    "name": "home",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 42.59375,
+      "y": 10.75,
+      "width": 202.515625,
+      "height": 66.5,
+      "top": 10.75,
+      "right": 245.109375,
+      "bottom": 77.25,
+      "left": 42.59375
+    }
+  },
+  {
+    "width": 1200,
+    "name": "contact",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 42.59375,
+      "y": 10.75,
+      "width": 202.515625,
+      "height": 66.5,
+      "top": 10.75,
+      "right": 245.109375,
+      "bottom": 77.25,
+      "left": 42.59375
+    }
+  },
+  {
+    "width": 1440,
+    "name": "home",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 51.109375,
+      "y": 10.75,
+      "width": 202.515625,
+      "height": 66.5,
+      "top": 10.75,
+      "right": 253.625,
+      "bottom": 77.25,
+      "left": 51.109375
+    }
+  },
+  {
+    "width": 1440,
+    "name": "contact",
+    "overflow": false,
+    "crestLoaded": true,
+    "brand": {
+      "x": 51.109375,
+      "y": 10.75,
+      "width": 202.515625,
+      "height": 66.5,
+      "top": 10.75,
+      "right": 253.625,
+      "bottom": 77.25,
+      "left": 51.109375
+    }
+  }
+]

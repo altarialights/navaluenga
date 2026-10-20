@@ -1,0 +1,161 @@
+{
+  "measuredAt": "2026-10-20T09:43:02.908Z",
+  "labOnly": true,
+  "inlineJSBytes": 3358,
+  "inlineJSGzipBytes": 1266,
+  "runs": [
+    {
+      "environment": "Chromium local; 390x844 DPR2; sin limitar",
+      "lcp": 148,
+      "cls": 0.000005456384130738648,
+      "interactions": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "resources": [
+        {
+          "name": "anton-latin-400-normal.Byf51wtH.woff2",
+          "transferSize": 18912,
+          "duration": 9
+        },
+        {
+          "name": "fraunces-latin-400-normal.6IfK1voy.woff2",
+          "transferSize": 18268,
+          "duration": 13
+        },
+        {
+          "name": "index.BmqM-mOr.css",
+          "transferSize": 3383,
+          "duration": 12
+        },
+        {
+          "name": "Layout.DwcIRnSx.css",
+          "transferSize": 11173,
+          "duration": 13
+        },
+        {
+          "name": "hero-conceptual.5BcVzkIU_sG8NC.avif",
+          "transferSize": 109149,
+          "duration": 13
+        },
+        {
+          "name": "hero-foliage.Dq2cTujF_Z1iB7Cc.webp",
+          "transferSize": 96042,
+          "duration": 13
+        },
+        {
+          "name": "dm-sans-latin-400-normal.CW0RaeGs.woff2",
+          "transferSize": 14500,
+          "duration": 71
+        },
+        {
+          "name": "dm-sans-latin-500-normal.B9HHJjqV.woff2",
+          "transferSize": 14604,
+          "duration": 66
+        },
+        {
+          "name": "fraunces-latin-600-normal.BFCDtZfi.woff2",
+          "transferSize": 18396,
+          "duration": 66
+        },
+        {
+          "name": "valle.BS_kLqUk_Z1dLHSX.avif",
+          "transferSize": 94474,
+          "duration": 4
+        },
+        {
+          "name": "alberche.CWfZYqkp_Z2h6BqT.avif",
+          "transferSize": 194794,
+          "duration": 4
+        },
+        {
+          "name": "pueblo.jzZ6DdIf_7GUIm.avif",
+          "transferSize": 100494,
+          "duration": 4
+        },
+        {
+          "name": "puente.Db6MNm38_Z1Bu2zr.avif",
+          "transferSize": 116828,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "environment": "Chromium local; 390x844 DPR2; 1.6Mbps/150ms; CPU4x",
+      "lcp": 2008,
+      "cls": 0.000005456384130738648,
+      "interactions": [
+        16,
+        16,
+        16,
+        32,
+        32,
+        32,
+        16,
+        16,
+        16
+      ],
+      "resources": [
+        {
+          "name": "anton-latin-400-normal.Byf51wtH.woff2",
+          "transferSize": 18912,
+          "duration": 615
+        },
+        {
+          "name": "fraunces-latin-400-normal.6IfK1voy.woff2",
+          "transferSize": 18268,
+          "duration": 614
+        },
+        {
+          "name": "Layout.DwcIRnSx.css",
+          "transferSize": 11173,
+          "duration": 474
+        },
+        {
+          "name": "index.BmqM-mOr.css",
+          "transferSize": 3383,
+          "duration": 280
+        },
+        {
+          "name": "hero-conceptual.5BcVzkIU_sG8NC.avif",
+          "transferSize": 109149,
+          "duration": 1918
+        },
+        {
+          "name": "hero-foliage.Dq2cTujF_Z1iB7Cc.webp",
+          "transferSize": 96042,
+          "duration": 1806
+        },
+        {
+          "name": "dm-sans-latin-400-normal.CW0RaeGs.woff2",
+          "transferSize": 14500,
+          "duration": 963
+        },
+        {
+          "name": "dm-sans-latin-500-normal.B9HHJjqV.woff2",
+          "transferSize": 14604,
+          "duration": 946
+        },
+        {
+          "name": "fraunces-latin-600-normal.BFCDtZfi.woff2",
+          "transferSize": 18396,
+          "duration": 1039
+        },
+        {
+          "name": "valle.BS_kLqUk_Z1dLHSX.avif",
+          "transferSize": 94474,
+          "duration": 1179
+        }
+      ]
+    }
+  ]
+}

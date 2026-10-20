@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/municipal.css';
+interface Props { title: string; description: string; crumb?: string; class?: string; }
+const { title, description, crumb = title, class: className = '' } = Astro.props;
+---
+<Layout title={`${title} · Navaluenga`} description={description}>
+  <div class:list={['municipal', className]}>
+    <nav class="breadcrumbs municipal-crumb" aria-label="Migas de pan"><a href="/">Navaluenga</a><span aria-hidden="true">/</span><span aria-current="page">{crumb}</span></nav>
+    <slot />
+  </div>
+</Layout>

@@ -1,0 +1,15 @@
+---
+import Icon from '../Icon.astro';
+import Photo from '../Photo.astro';
+import valley from '../../assets/valle.jpg';
+const links = [
+  ['A la mesa', 'Restaurantes y gastronomía', '/empresas/comer/'],
+  ['Quédate un poco más', 'Alojamientos y casas rurales', '/empresas/dormir/'],
+  ['Todo cerca', 'Comercios y servicios', '/empresas/comercio/'],
+  ['Sal y descubre', 'Actividades y experiencias', '/empresas/actividades/'],
+];
+---
+<section class="home-business section-pad" aria-labelledby="home-business-title">
+  <div class="home-business-copy"><Icon name="shop" class="business-symbol" /><h2 id="home-business-title">Detrás de cada puerta,<br /><em>hay alguien de aquí.</em></h2><p>Quien prepara tu mesa. Quien te abre su casa. <br />Quien hace que el pueblo siga en marcha.</p><a class="button button-sun button-pill" href="/empresas/">Conoce el comercio local <Icon /></a></div>
+  <div class="home-business-directory"><figure><Photo src={valley} alt="El paisaje y las casas de Navaluenga al pie de la sierra." sizes="(min-width: 900px) 36vw, 100vw" /><figcaption>Un pueblo hecho de personas.</figcaption></figure><nav aria-label="Guía de empresas locales">{links.map(([title, subtitle, href]) => <a href={href}><span><strong>{title}</strong><small>{subtitle}</small></span><Icon /></a>)}</nav><p class="home-business-note">Directorio informativo, sin rankings ni recomendaciones comerciales.</p></div>
+</section>

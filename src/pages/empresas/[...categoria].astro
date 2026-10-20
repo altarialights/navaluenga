@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import { businesses, categories } from '../../data/businesses';
+import { official } from '../../data/site';
+import Photo from '../../components/Photo.astro';
+import village from '../../assets/pueblo.jpg';
+import '../../styles/municipal.css';
+export function getStaticPaths() {
+  return categories.map(category => ({ params: { categoria: category.id === 'todos' ? undefined : category.id }, props: { category: category.id } }));
+}
+const { category = 'todos' } = Astro.props;
+const current = categories.find(entry => entry.id === category)!;
+const count = businesses.filter(entry => category === 'todos' || entry.category === category).length;
+---
+<Layout title={`${category === 'todos' ? 'Empresas del pueblo' : current.label} · Navaluenga`} description="Encuentra restaurantes, alojamientos, actividades y comercio de Navaluenga. Directorio con datos publicados por el Ayuntamiento y contacto directo.">
+  <div class="directory-shell" data-directory data-category={category}>
+    <nav class="breadcrumbs" aria-label="Migas de pan"><a href="/">Navaluenga</a><span aria-hidden="true">/</span><span aria-current="page">Empresas</span></nav>
+    <header class="directory-header"><div><h1>El pueblo,<br /> también en sus manos.</h1></div><p>Encuentra dónde quedarte,<br /> sentarte a la mesa o descubrir<br /> algo nuevo. Contacta directamente.</p></header>
+    <div class="directory-banner"><figure><Photo src={village} alt="Panorámica documental de Navaluenga, contexto del directorio local." /><figcaption>Navaluenga · Fotografía del municipio, no de los establecimientos.</figcaption></figure><p>Comercio, hostelería y personas que dan vida al pueblo. Una selección informativa en orden alfabético, con el mismo espacio para cada negocio.</p></div>
+    <nav class="directory-categories" aria-label="Categorías del directorio">{categories.map(item => <a href={item.id === 'todos' ? '/empresas/' : `/empresas/${item.id}/`} data-filter={item.id} aria-current={category === item.id ? 'page' : undefined}>{item.label}</a>)}</nav>
+    <div class="directory-tools"><p role="status" aria-live="polite" aria-atomic="true" data-count>{count} establecimientos</p><form class="directory-search" role="search" hidden><label for="business-query">Buscar en el directorio</label><div><Icon name="search" /><input id="business-query" name="q" type="search" placeholder="Nombre o actividad…" autocomplete="off" /><button type="submit">Buscar</button></div></form></div>
+    <noscript><p class="practical-note">Elige una categoría para navegar por el directorio. La búsqueda por texto necesita JavaScript.</p></noscript>
+    <ul class="business-list">{businesses.map(business => <li class="business-row" data-business data-category={business.category} data-search={`${business.name} ${business.detail} ${business.address || ''}`} hidden={category !== 'todos' && business.category !== category}>
+      <div><p class="business-category">{business.detail}</p><h2>{business.name}</h2>{business.address && <p class="business-address">{business.address}</p>}<details class="business-details"><summary>Información y cómo llegar</summary><p>{business.address || 'Dirección no verificada. Consulta al establecimiento antes de desplazarte.'}</p><p>No se dispone de fotografía propia ni web del negocio verificadas. Consulta su ficha municipal y confirma los datos directamente.</p><a class="text-link" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${business.name} ${business.address || ''} Navaluenga`)}`}>Buscar ubicación en el mapa <Icon /></a></details></div>
+      <div class="business-contact"><a class="business-phone" href={`tel:+34${business.phone.replaceAll(' ', '')}`} aria-label={`Llamar a ${business.name}: ${business.phone}`}>{business.phone} <Icon /></a><a class="business-source" href={business.source}>Ficha municipal <Icon /></a></div>
+    </li>)}</ul>
+    <div class="directory-empty" hidden><h2>No encontramos ese nombre.</h2><p>Prueba con otra palabra o vuelve a ver todas las categorías.</p><button class="button button-sun" type="button" data-reset>Ver todos los establecimientos</button></div>
+    <div class="directory-note"><p>Selección informativa de establecimientos publicados por el Ayuntamiento. Orden alfabético, sin valoraciones ni reservas. Confirma horarios, precios, disponibilidad y accesibilidad directamente con cada negocio.</p><p>Datos consultados el 30 de septiembre de 2026. <a href={official.services}>Ver el directorio municipal completo <Icon /></a></p><p>¿Quieres comunicar una corrección? <a href="/contacto/">Contacta con el Ayuntamiento <Icon /></a>. La edición de fichas por personal autorizado queda pendiente de integración.</p></div>
+  </div>
+</Layout>
+<script>
+  const root = document.querySelector<HTMLElement>('[data-directory]');
+  if (root) {
+    const form = root.querySelector<HTMLFormElement>('form')!;
+    const input = form.querySelector<HTMLInputElement>('input')!;
+    const filters = [...root.querySelectorAll<HTMLAnchorElement>('[data-filter]')];
+    const rows = [...root.querySelectorAll<HTMLElement>('[data-business]')];
+    const status = root.querySelector<HTMLElement>('[data-count]')!;
+    const empty = root.querySelector<HTMLElement>('.directory-empty')!;
+    let category = root.dataset.category || 'todos';
+    const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es');
+    const render = () => {
+      const query = normalize(input.value.trim());
+      let count = 0;
+      rows.forEach(row => {
+        row.hidden = !((category === 'todos' || row.dataset.category === category) && normalize(row.dataset.search || '').includes(query));
+        if (!row.hidden) count++;
+      });
+      filters.forEach(filter => {
+        if (filter.dataset.filter === category) filter.setAttribute('aria-current', 'page');
+        else filter.removeAttribute('aria-current');
+      });
+      status.textContent = `${count} ${count === 1 ? 'establecimiento' : 'establecimientos'}`;
+      empty.hidden = count > 0;
+      const title = filters.find(filter => filter.dataset.filter === category)?.textContent || 'Empresas';
+      document.title = `${title === 'Todos' ? 'Empresas del pueblo' : title} · Navaluenga`;
+    };
+    const syncUrl = (push = false) => {
+      const url = new URL(category === 'todos' ? '/empresas/' : `/empresas/${category}/`, location.origin);
+      if (input.value.trim()) url.searchParams.set('q', input.value.trim());
+      history[push ? 'pushState' : 'replaceState']({}, '', url);
+    };
+    form.hidden = false;
+    input.value = new URLSearchParams(location.search).get('q') || '';
+    render();
+    filters.forEach(filter => filter.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault(); category = filter.dataset.filter || 'todos'; render(); syncUrl(true);
+    }));
+    let debounce: ReturnType<typeof setTimeout>;
+    input.addEventListener('input', () => { clearTimeout(debounce); debounce = setTimeout(() => { render(); syncUrl(); }, 150); });
+    form.addEventListener('submit', event => { event.preventDefault(); clearTimeout(debounce); render(); syncUrl(); });
+    root.querySelector('[data-reset]')?.addEventListener('click', () => { category = 'todos'; input.value = ''; render(); syncUrl(true); input.focus(); });
+    addEventListener('popstate', () => { category = location.pathname.split('/')[2] || 'todos'; input.value = new URLSearchParams(location.search).get('q') || ''; render(); });
+  }
+</script>

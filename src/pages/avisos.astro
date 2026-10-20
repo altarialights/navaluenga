@@ -1,0 +1,17 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import DemoNote from '../components/DemoNote.astro';
+import FilterBar from '../components/FilterBar.astro';
+import Icon from '../components/Icon.astro';
+import { notices, formatDate } from '../data/municipal';
+import { official } from '../data/site';
+---
+<Shell title="Avisos municipales" description="Consulta una demostración del tablón de avisos por categoría y fecha, con prioridades accesibles y enlaces a las publicaciones oficiales.">
+  <div class="page-wrap">
+    <header class="notice-heading"><h1>Lo que conviene<br />tener a mano.</h1><p class="lead">Servicios, cambios y comunicaciones.<br />La información, en su sitio.</p></header>
+    <DemoNote text="Los avisos siguientes son ejemplos. No anuncian cortes, obras ni cambios reales de servicios." />
+    <a class="text-link" href={official.notices}>Consultar publicaciones oficiales <Icon /></a>
+    <section data-filter-root class="section-space"><h2>Avisos y comunicaciones</h2><FilterBar label="Buscar aviso" categories={['Agua', 'Obras', 'Horarios', 'Servicios', 'Incidencias']} dates />{notices.map(n => <article class="notice-row" data-item data-category={n.category} data-date={n.date}><div><span class="badge">{n.priority}</span><time datetime={n.date}>{formatDate(n.date)}</time></div><div><h2>{n.title}</h2><p>{n.text}</p><details><summary>Información del aviso de ejemplo</summary><p>Categoría: {n.category}. Estado: contenido de demostración sin vigencia administrativa. En el servicio real, cada aviso incluiría ámbito, periodo afectado, alternativas y fecha de actualización.</p><a class="text-link" href={official.notices}>Ir a la información municipal oficial <Icon /></a></details></div></article>)}</section>
+    <section class="subscribe-note"><h2>Avisos que lleguen a ti.</h2><p>La suscripción por correo todavía no está disponible. Mientras tanto, consulta las publicaciones oficiales. Una futura suscripción requerirá que elijas los temas y confirmes tu consentimiento.</p><a class="text-link" href={official.notices}>Abrir el tablón municipal <Icon /></a></section>
+  </div>
+</Shell>

@@ -1,0 +1,15 @@
+---
+import Icon from '../Icon.astro';
+const actions = [
+  { title: 'Trámites y servicios', detail: 'Encuentra tu gestión', href: '/tramites/', icon: 'document' as const },
+  { title: 'Tu aviso mejora el pueblo', detail: 'Incidencias ciudadanas · demo', href: '/incidencias/', icon: 'pin' as const },
+  { title: 'Agenda municipal', detail: 'Cultura, deporte y encuentros', href: '/agenda/', icon: 'calendar' as const },
+  { title: 'Instalaciones y reservas', detail: 'Espacios para compartir · demo', href: '/instalaciones/', icon: 'courts' as const },
+  { title: 'Sede electrónica', detail: 'Accede al canal oficial', href: '/sede/', icon: 'building' as const },
+  { title: 'Atención ciudadana', detail: 'Contacto e información sobre cita', href: '/contacto/', icon: 'message' as const },
+];
+---
+<section class="home-services section-pad" id="servicios" aria-labelledby="home-services-title">
+  <div class="home-services-heading"><h2 id="home-services-title">Tu día a día,<br /><em>un poco más fácil.</em></h2><p>Menos vueltas. Más tiempo para lo que importa. <br />Empieza por lo que necesitas.</p></div>
+  <nav class="citizen-actions" aria-label="Servicios ciudadanos">{actions.map(action => <a href={action.href}><Icon name={action.icon} /><span><strong>{action.title}</strong><small>{action.detail}</small></span><Icon name="diagonal" class="action-arrow" /></a>)}</nav>
+</section>

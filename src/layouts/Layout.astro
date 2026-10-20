@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getImage } from 'astro:assets';
+import bridge from '../assets/puente.jpg';
+import '../styles/global.css';
+import '../styles/navigation.css';
+import '@fontsource/anton/latin-400.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-500.css';
+import antonFont from '@fontsource/anton/files/anton-latin-400-normal.woff2?url';
+import serifFont from '@fontsource/fraunces/files/fraunces-latin-400-normal.woff2?url';
+import serifHeadingFont from '@fontsource/fraunces/files/fraunces-latin-600-normal.woff2?url';
+interface Props { title: string; description: string; home?: boolean; }
+const { title, description, home = false } = Astro.props;
+const site = import.meta.env.SITE_URL;
+const indexable = Boolean(site && import.meta.env.PUBLIC_INDEXABLE === 'true');
+const canonical = site ? new URL(Astro.url.pathname, site).href : undefined;
+const social = await getImage({ src: bridge, width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 });
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#123728" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={indexable ? 'index, follow' : 'noindex, nofollow'} />
+    <title>{title}</title>
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Navaluenga" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={site ? new URL(social.src, site).href : social.src} />
+    <meta property="og:image:alt" content="El Puente Viejo de Navaluenga sobre el río Alberche." />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {home && <link rel="preload" href={antonFont} as="font" type="font/woff2" crossorigin />}
+    <link rel="preload" href={home ? serifFont : serifHeadingFont} as="font" type="font/woff2" crossorigin />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {home && <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Place', name: 'Navaluenga', address: { '@type': 'PostalAddress', addressLocality: 'Navaluenga', addressRegion: 'Ávila', addressCountry: 'ES' } })} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido" tabindex="0">Saltar al contenido</a>
+    <Header home={home} />
+    <main id="contenido" tabindex="-1"><slot /></main>
+    <Footer />
+    <script>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          for (const entry of entries) if (entry.isIntersecting) {
+            entry.target.classList.add('is-in-view');
+            observer.unobserve(entry.target);
+          }
+        }, { threshold: 0.12 });
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

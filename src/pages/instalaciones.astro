@@ -1,0 +1,77 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import DemoNote from '../components/DemoNote.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import river from '../assets/alberche.jpg';
+import { facilities } from '../data/municipal';
+---
+<Shell title="Instalaciones y reservas" description="Explora espacios y prueba la selección de fecha y horario de una reserva municipal de demostración. Consulta la disponibilidad real con el Ayuntamiento.">
+  <div class="page-wrap" data-booking>
+    <header class="facility-heading"><h1>Un espacio.<br />Muchas posibilidades.</h1><p class="lead">Jugar, aprender, reunirse. Encuentra un lugar para lo que te mueve.</p></header>
+    <DemoNote text="Catálogo ilustrativo y disponibilidad ficticia. No se confirma ninguna reserva ni se publican tarifas u horarios oficiales." />
+    <div class="facility-layout">
+      <div><h2>Elige tu espacio</h2><div class="facility-select" aria-label="Instalación">{facilities.map((f,i) => <button data-facility={f.id} aria-pressed={i === 0}><span><strong>{f.name}</strong><small>{f.category} · Ejemplo</small></span><Icon /></button>)}</div><figure class="facility-context"><Photo src={river} alt="Río Alberche en Navaluenga, fotografía de contexto del entorno natural." /><figcaption>El Alberche · Fotografía del entorno, no de las instalaciones de ejemplo.</figcaption></figure><a class="text-link" href="/contacto/">Consultar disponibilidad real <Icon /></a></div>
+      <div><form class="form-surface" data-booking-form hidden>
+        <div class="booking-details"><h2 data-facility-title>{facilities[0].name}</h2><p data-facility-description>{facilities[0].description}</p><p class="small-note" data-facility-services>{facilities[0].services}</p><p class="small-note" data-facility-rules>{facilities[0].rules}</p></div>
+        <label class="field">Fecha de ejemplo<input type="date" name="date" required aria-describedby="booking-date-help" /></label><p class="small-note" id="booking-date-help">Selecciona hoy o una fecha futura. Todos los horarios que se muestran son ficticios.</p>
+        <fieldset><legend>Franja horaria de ejemplo</legend><div class="slot-list" data-slots></div></fieldset>
+        <p class="small-note">Duración de ejemplo: 1 hora. Precio y horario oficial: consultar con el Ayuntamiento.</p>
+        <label class="field"><span><input type="checkbox" name="acknowledge" required /> Entiendo que no estoy reservando una instalación real.</span></label>
+        <p class="error-message" role="alert" data-booking-error></p>
+        <button type="submit" class="button button-sun">Revisar solicitud de ejemplo</button>
+      </form>
+      <section class="form-surface" data-booking-review hidden tabindex="-1"><h2>Revisa la selección</h2><dl class="review-data" data-booking-summary></dl><p>No se solicitará ningún dato personal ni se enviará una reserva.</p><div class="action-row"><button class="button button-sun" data-confirm>Confirmar demostración</button><button class="quiet-button" data-edit>Modificar</button></div></section>
+      <section class="status-panel" data-booking-complete hidden tabindex="-1"><h2>Demostración completada.</h2><p>No se ha realizado una reserva ni un pago. Para consultar condiciones y disponibilidad reales, contacta con el Ayuntamiento.</p><div class="action-row"><a class="button button-sun" href="/contacto/">Consultar con el Ayuntamiento</a><button class="button button-line" data-again>Probar otra fecha</button></div></section></div>
+    </div>
+    <noscript><p class="demo-note">La reserva de ejemplo requiere JavaScript. Contacta con el Ayuntamiento para información real.</p></noscript>
+  </div>
+</Shell>
+<script>
+  import { facilities, formatDate } from '../data/municipal';
+  const root = document.querySelector<HTMLElement>('[data-booking]')!;
+  const form = root.querySelector<HTMLFormElement>('form')!;
+  form.hidden = false;
+  const review = root.querySelector<HTMLElement>('[data-booking-review]')!;
+  const complete = root.querySelector<HTMLElement>('[data-booking-complete]')!;
+  const date = form.elements.namedItem('date') as HTMLInputElement;
+  const error = root.querySelector<HTMLElement>('[data-booking-error]')!;
+  let selected = facilities[0];
+  date.min = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Madrid' }).format(new Date());
+  date.value = date.min;
+  const slots = root.querySelector('[data-slots]')!;
+  const renderSlots = () => {
+    slots.replaceChildren();
+    ['10:00', '11:00', '16:00', '17:00'].forEach((time, i) => {
+      const unavailable = (Number(date.value.slice(-2)) + facilities.indexOf(selected) + i) % 4 === 0;
+      const label = document.createElement('label'); const radio = document.createElement('input');
+      radio.type = 'radio'; radio.name = 'slot'; radio.value = time; radio.required = true; radio.disabled = unavailable;
+      label.append(radio, document.createTextNode(`${time}${unavailable ? ' · no disponible' : ''}`)); slots.append(label);
+    });
+  };
+  const edit = () => { form.hidden = false; review.hidden = true; complete.hidden = true; };
+  root.querySelectorAll<HTMLButtonElement>('[data-facility]').forEach(button => button.addEventListener('click', () => {
+    selected = facilities.find(f => f.id === button.dataset.facility)!; edit();
+    root.querySelectorAll('[data-facility]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    root.querySelector('[data-facility-title]')!.textContent = selected.name;
+    root.querySelector('[data-facility-description]')!.textContent = selected.description;
+    root.querySelector('[data-facility-services]')!.textContent = selected.services;
+    root.querySelector('[data-facility-rules]')!.textContent = selected.rules;
+    error.textContent = ''; renderSlots();
+  }));
+  date.addEventListener('change', () => { error.textContent = ''; renderSlots(); });
+  form.addEventListener('submit', event => {
+    event.preventDefault(); error.textContent = '';
+    if (!date.value || date.value < date.min) { error.textContent = 'Selecciona hoy o una fecha futura.'; date.focus(); return; }
+    const data = new FormData(form);
+    const summary = root.querySelector('[data-booking-summary]')!; summary.replaceChildren();
+    [['Espacio', selected.name], ['Fecha ficticia', formatDate(date.value)], ['Hora ficticia', String(data.get('slot'))]].forEach(([key,value]) => {
+      const dt = document.createElement('dt'); dt.textContent = key; const dd = document.createElement('dd'); dd.textContent = value; summary.append(dt,dd);
+    });
+    form.hidden = true; review.hidden = false; review.focus();
+  });
+  root.querySelector('[data-edit]')!.addEventListener('click', () => { edit(); date.focus(); });
+  root.querySelector('[data-confirm]')!.addEventListener('click', () => { review.hidden = true; complete.hidden = false; complete.focus(); });
+  root.querySelector('[data-again]')!.addEventListener('click', () => { edit(); (form.elements.namedItem('acknowledge') as HTMLInputElement).checked = false; renderSlots(); date.focus(); });
+  renderSlots();
+</script>

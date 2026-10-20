@@ -1,0 +1,14 @@
+---
+import Article from '../layouts/Article.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import bridge from '../assets/puente.jpg';
+import { official } from '../data/site';
+---
+<Article title="Historia y patrimonio" heading="La memoria de dos orillas." description="La historia del Puente Viejo de Navaluenga, una construcción del siglo XVI, y las tradiciones que forman parte de la identidad del pueblo." intro="El granito guarda huellas de quienes pasaron. El pueblo conserva las historias que las acompañan.">
+  <figure slot="cover" class="article-cover"><Photo src={bridge} alt="Puente de granito de Navaluenga, con sus cuatro arcos sobre el río." sizes="(min-width: 1200px) 1200px, 100vw" eager /><figcaption>Puente Viejo · Miguel Angel Masegosa Martínez / CC BY 2.0.</figcaption></figure>
+  <section id="puente"><h2>Un puente del siglo XVI</h2><p>Aunque se conoce como puente románico, el Ayuntamiento sitúa su construcción en el siglo XVI. Sus cuatro arcos de granito permitieron al ganado cruzar el Alberche en dirección a la sierra.</p><p>Un documento del Concejo fechado el 19 de febrero de 1542 recoge la petición de construirlo. La financiación reunió a los pueblos del Concejo de Burgohondo y al Ayuntamiento de Navaluenga.</p><a class="text-link" href={official.bridge}>Leer la historia documentada <Icon /></a></section>
+  <section id="pueblo"><h2>La piedra y sus historias</h2><p>Las cruces grabadas en los pretiles recuerdan antiguas prácticas de protección. La web municipal también recoge leyendas, como la del toro del puente: relatos de tradición popular que acompañan al monumento.</p><p>Para descubrir otros lugares de patrimonio, consulta el recorrido cultural del Ayuntamiento.</p><a class="text-link" href="https://aytonavaluenga.es/que_ver/">Patrimonio del pueblo <Icon /></a></section>
+  <section id="tradiciones"><h2>Una memoria que se canta</h2><p>La Rondalla Ecos del Alberche y los Romances de Lope de Vega forman parte de las manifestaciones culturales recogidas por el municipio. La agenda oficial ofrece la programación disponible para cada momento.</p><div class="article-actions"><a class="button button-sun" href={official.leisure}>Fiestas y costumbres <Icon /></a><a class="text-link" href={official.agenda}>Consultar la agenda <Icon /></a></div></section>
+  <p class="source-note">Fuentes: <a href={official.bridge}>Puente Románico</a> y <a href={official.leisure}>Ocio, fiestas y costumbres</a>, Ayuntamiento de Navaluenga. Consulta: 30 de septiembre de 2026.</p>
+</Article>

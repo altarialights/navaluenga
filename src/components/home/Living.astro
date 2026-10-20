@@ -1,0 +1,10 @@
+---
+import Photo from '../Photo.astro';
+import Icon from '../Icon.astro';
+import village from '../../assets/pueblo.jpg';
+const topics = [['Educación', 'educacion'], ['Salud', 'salud'], ['Transporte', 'transporte'], ['Residuos', 'residuos'], ['Servicios sociales', 'sociales'], ['Teléfonos útiles', 'telefonos']];
+---
+<section class="home-living section-pad" id="vivir" aria-labelledby="home-living-title">
+  <div class="home-living-title"><h2 id="home-living-title">Aquí no solo se viene.<br /><em>Aquí se vive.</em></h2><a class="text-link" href="/vivir/">Toda la información práctica <Icon /></a></div>
+  <div class="home-living-content"><figure><Photo src={village} alt="Navaluenga entre los árboles y las laderas de la sierra." sizes="(min-width: 900px) 48vw, 100vw" /><figcaption>El pueblo que compartimos, todos los días.</figcaption></figure><div class="home-living-guide"><p>Para quienes llevan toda una vida.<br />Para quienes acaban de llegar.<br />Un lugar donde encontrar lo que necesitas.</p><nav aria-label="Información para vivir en Navaluenga">{topics.map(([title, id]) => <a href={`/vivir/#${id}`}><span>{title}</span><Icon name="right" /></a>)}</nav></div></div>
+</section>

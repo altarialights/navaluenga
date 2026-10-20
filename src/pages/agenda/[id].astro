@@ -1,0 +1,43 @@
+---
+import Shell from '../../components/MunicipalShell.astro';
+import DemoNote from '../../components/DemoNote.astro';
+import Icon from '../../components/Icon.astro';
+import { events, formatDate } from '../../data/municipal';
+import { official } from '../../data/site';
+export function getStaticPaths() { return events.map(event => ({ params: { id: event.id }, props: { event } })); }
+const { event } = Astro.props;
+---
+<Shell title={event.title} description={`${event.description} Evento de demostración, no confirmado.`} crumb="Agenda / Evento de ejemplo">
+  <div class="page-wrap" data-event={JSON.stringify(event)}>
+    <a class="text-link" href="/agenda/">Volver a la agenda</a>
+    <DemoNote text="Evento ficticio: fecha, horario y ubicación de ejemplo. No hay una convocatoria ni inscripción real." />
+    <article class="event-detail"><time class="event-date" datetime={event.date}>{event.date.slice(-2)}<small>{new Date(`${event.date}T12:00:00`).toLocaleDateString('es-ES', { month: 'long' })}</small></time><div><h1>{event.title}</h1><p class="lead">{event.description}</p><dl class="event-facts"><div><dt>Cuándo · ejemplo</dt><dd>{formatDate(event.date)}<br />{event.time}–{event.end}</dd></div><div><dt>Dónde · ejemplo</dt><dd>{event.place}</dd></div><div><dt>Categoría</dt><dd>{event.category}</dd></div></dl><h2>Antes de venir</h2><p class="lead">{event.practical}</p>{event.registration && <p class="demo-note">Inscripción no habilitada. Consulta las actividades confirmadas en la agenda municipal.</p>}<div class="action-row"><button class="button button-sun" data-ics>Añadir ejemplo al calendario</button><button class="quiet-button" data-share>Compartir evento de ejemplo</button></div><p role="status" data-share-status></p><label class="field" data-copy-fallback hidden>Enlace para copiar<input readonly aria-label="Enlace del evento de ejemplo" /></label><a class="text-link" href={official.agenda}>Consultar programación oficial <Icon /></a></div></article>
+  </div>
+</Shell>
+<script>
+  import { downloadFile } from '../../scripts/municipal';
+  import type { events } from '../../data/municipal';
+  const root = document.querySelector<HTMLElement>('[data-event]')!;
+  const event = JSON.parse(root.dataset.event!) as (typeof events)[number];
+  const escapeICS = (value: string) => value.replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/;/g, '\\;').replace(/,/g, '\\,');
+  // These fixture events are after the DST transition except October 24 (+02:00).
+  const toUTC = (time: string) => new Date(`${event.date}T${time}:00${event.date < '2026-10-25' ? '+02:00' : '+01:00'}`).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  root.querySelector('[data-ics]')!.addEventListener('click', () => {
+    const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Navaluenga Demo//Agenda//ES','CALSCALE:GREGORIAN','BEGIN:VEVENT',`UID:demo-${event.id}-2026@navaluenga.invalid`,`DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}`,`DTSTART:${toUTC(event.time)}`,`DTEND:${toUTC(event.end)}`,`SUMMARY:${escapeICS(`[DEMO NO CONFIRMADO] ${event.title}`)}`,`DESCRIPTION:${escapeICS('Evento ficticio. No es programación municipal. ' + event.description)}`,`LOCATION:${escapeICS(event.place)}`,'STATUS:TENTATIVE','END:VEVENT','END:VCALENDAR'];
+    // Fold by UTF-8 bytes as required by RFC 5545.
+    const fold = (line: string) => { let out = '', chunk = ''; for (const char of line) { if (new TextEncoder().encode(chunk + char).length > 73) { out += chunk + '\r\n'; chunk = ' '; } chunk += char; } return out + chunk; };
+    downloadFile(`DEMO-${event.id}.ics`, lines.map(fold).join('\r\n') + '\r\n', 'text/calendar;charset=utf-8');
+  });
+  root.querySelector('[data-share]')!.addEventListener('click', async () => {
+    const status = root.querySelector('[data-share-status]')!;
+    try {
+      if (navigator.share) await navigator.share({ title: `[DEMO] ${event.title}`, text: 'Evento ficticio, no confirmado por el Ayuntamiento.', url: location.href });
+      else { await navigator.clipboard.writeText(location.href); status.textContent = 'Enlace copiado. Recuerda indicar que es un evento de ejemplo.'; }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return;
+      const fallback = root.querySelector<HTMLElement>('[data-copy-fallback]')!; fallback.hidden = false;
+      const input = fallback.querySelector('input')!; input.value = location.href; input.focus(); input.select();
+      status.textContent = 'Puedes copiar el enlace manualmente.';
+    }
+  });
+</script>

@@ -1,0 +1,17 @@
+---
+import Shell from '../../components/MunicipalShell.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import Icon from '../../components/Icon.astro';
+import { procedures } from '../../data/municipal';
+---
+<Shell title="Trámites y servicios" description="Encuentra tu gestión municipal: padrón, registro, obras, impuestos, agua y certificados. Guías de orientación y acceso al canal oficial.">
+  <div class="page-wrap">
+    <div data-filter-root>
+      <header class="search-hero"><h1>Menos vueltas.<br />Más soluciones.</h1><p class="lead">Lo que necesitas de tu Ayuntamiento, explicado paso a paso.</p></header>
+      <FilterBar label="¿Qué necesitas hacer?" categories={['Vivir aquí', 'Documentos', 'Urbanismo', 'Economía']} />
+      <nav class="living-index" aria-label="Gestiones habituales"><a href="/tramites/padron/">Empadronarme</a><a href="/tramites/registro/">Presentar una solicitud</a><a href="/incidencias/">Comunicar una incidencia</a></nav>
+      <div class="section-space">{procedures.map(p => <article class="procedure-row" data-item data-category={p.category}><span class="tag">{p.category}</span><div><h2><a href={`/tramites/${p.id}/`}>{p.title}</a></h2><p>{p.description}</p></div><a href={`/tramites/${p.id}/`} aria-label={`Ver guía de ${p.title}`}>Ver guía <Icon /></a></article>)}</div>
+    </div>
+    <section class="section-space two-thirds"><div class="faq"><h2>Antes de empezar</h2><details><summary>¿Puedo hacer mi trámite presencialmente?</summary><p>Consulta con el Ayuntamiento el canal disponible y la documentación de tu gestión. Algunos sujetos están obligados a relacionarse electrónicamente; comprueba tu caso en la sede.</p></details><details><summary>¿Dónde consulto requisitos y plazos?</summary><p>En la ficha y las bases oficiales de cada procedimiento. Estas guías son orientativas y no sustituyen la información administrativa.</p></details><details><summary>¿Una incidencia equivale a un registro?</summary><p>No. Un aviso o una sugerencia no sustituye la presentación de una solicitud por registro.</p></details></div><aside class="side-note"><h2>Te ayudamos.</h2><p>Si no sabes por dónde empezar, contacta con el Ayuntamiento.</p><a href="/contacto/" class="text-link">Atención ciudadana <Icon /></a></aside></section>
+  </div>
+</Shell>

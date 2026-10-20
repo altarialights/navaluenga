@@ -1,0 +1,96 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import DemoNote from '../components/DemoNote.astro';
+import { official } from '../data/site';
+---
+<Shell title="Incidencias ciudadanas" description="Tu aviso mejora Navaluenga. Prueba un recorrido guiado para describir una incidencia, localizarla, añadir fotografías y revisar el aviso.">
+  <div class="page-wrap">
+    <DemoNote text="Prueba el recorrido con datos ficticios. No se envía ningún aviso al Ayuntamiento ni se guardan tus datos." />
+    <div class="flow-layout" data-incident>
+      <header class="flow-heading"><h1>Tu aviso mejora Navaluenga.</h1><p class="lead">Una farola, una acera, un espacio compartido. Cuidar el pueblo empieza por prestar atención.</p><ol class="step-list" aria-label="Pasos de la incidencia">{['Tipo', 'Descripción', 'Ubicación', 'Fotografías', 'Revisión'].map((s, i) => <li data-step-label aria-current={i === 0 ? 'step' : undefined}>{s}</li>)}</ol><p class="small-note">Para una emergencia, llama al 112. Este recorrido de ejemplo no es un canal de atención.</p><a class="text-link" href={official.contact}>Contactar por el canal oficial</a></header>
+      <div>
+        <form class="form-surface" novalidate hidden>
+          <section data-step><h2>¿Qué has visto?</h2><fieldset><legend>Selecciona el tipo de incidencia</legend><div class="choice-list">{['Alumbrado', 'Limpieza', 'Calles y aceras', 'Mobiliario urbano', 'Parques y jardines', 'Agua', 'Otros'].map(t => <label><input type="radio" name="type" value={t} required />{t}</label>)}</div></fieldset></section>
+          <section data-step hidden><h2>Cuéntanos qué ocurre</h2><label class="field">Descripción de ejemplo<textarea name="description" minlength="15" maxlength="1500" placeholder="Por ejemplo: una farola no se enciende al anochecer…" required aria-describedby="description-help"></textarea></label><p class="small-note" id="description-help">Entre 15 y 1.500 caracteres. No incluyas nombres, teléfonos ni información personal.</p></section>
+          <section data-step hidden><h2>¿Dónde ocurre?</h2><label class="field">Calle o referencia ficticia<input name="location" minlength="5" maxlength="180" placeholder="Una calle o espacio público de ejemplo" required /></label><p class="small-note">Indica una referencia de ejemplo. No uses domicilios particulares ni ubicaciones sensibles.</p></section>
+          <section data-step hidden><h2>Una imagen ayuda</h2><label class="field">Fotografías opcionales<input type="file" name="photos" accept="image/jpeg,image/png,image/webp" multiple aria-describedby="photo-help" /></label><p class="small-note" id="photo-help">Hasta 3 imágenes JPG, PNG o WebP, máximo 5 MB cada una. Evita personas reconocibles y matrículas. Las fotos solo se previsualizan en este navegador.</p><div class="photo-previews" data-previews></div></section>
+          <section data-step hidden><h2>Revisa tu aviso</h2><dl class="review-data" data-review></dl><label class="field"><span><input type="checkbox" name="acknowledge" required /> Entiendo que es una demostración y no se enviará al Ayuntamiento.</span></label></section>
+          <p class="error-message" role="alert" data-error></p>
+          <div class="form-actions"><button type="button" class="quiet-button" data-back hidden>Anterior</button><button type="submit" class="button button-sun" data-next>Continuar</button></div>
+        </form>
+        <section class="status-panel" data-complete hidden tabindex="-1"><h2>Has completado el ejemplo.</h2><p>Tu aviso no se ha enviado. Puedes descargar un borrador de demostración o empezar de nuevo.</p><div class="action-row"><button class="button button-sun" data-download>Descargar borrador</button><button class="button button-line" data-restart>Nuevo ejemplo</button></div></section>
+      </div>
+    </div>
+    <section class="section-space side-note"><h2>Así podría seguir tu aviso</h2><p>Propuesta de seguimiento para un futuro panel municipal. Estos estados no corresponden a expedientes reales.</p><div class="status-track"><span>Recibida</span><span>En revisión</span><span>En curso</span><span>Resuelta</span></div></section>
+    <noscript><p class="demo-note">El recorrido guiado necesita JavaScript. Puedes utilizar el enlace al contacto oficial.</p></noscript>
+  </div>
+</Shell>
+<script>
+  import { downloadFile } from '../scripts/municipal';
+  const root = document.querySelector<HTMLElement>('[data-incident]')!;
+  const form = root.querySelector<HTMLFormElement>('form')!;
+  form.hidden = false;
+  const steps = [...root.querySelectorAll<HTMLElement>('[data-step]')];
+  const error = root.querySelector<HTMLElement>('[data-error]')!;
+  const back = root.querySelector<HTMLButtonElement>('[data-back]')!;
+  const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+  const photoInput = form.elements.namedItem('photos') as HTMLInputElement;
+  const complete = root.querySelector<HTMLElement>('[data-complete]')!;
+  let step = 0;
+  let urls: string[] = [];
+  const photoError = () => {
+    const files = [...(photoInput.files || [])];
+    if (files.length > 3) return 'Selecciona como máximo 3 fotografías.';
+    if (files.some(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type))) return 'Utiliza imágenes JPG, PNG o WebP.';
+    if (files.some(file => file.size > 5 * 1024 * 1024)) return 'Cada fotografía debe ocupar como máximo 5 MB.';
+    return '';
+  };
+  const values = () => {
+    const data = new FormData(form);
+    return [['Tipo', String(data.get('type') || '')], ['Descripción', String(data.get('description') || '').trim()], ['Ubicación', String(data.get('location') || '').trim()], ['Fotografías', `${photoInput.files?.length || 0} archivos locales`]];
+  };
+  const render = (focus = true) => {
+    steps.forEach((el, i) => el.hidden = i !== step);
+    root.querySelectorAll('[data-step-label]').forEach((el, i) => { if (i === step) el.setAttribute('aria-current', 'step'); else el.removeAttribute('aria-current'); });
+    back.hidden = step === 0;
+    next.textContent = step === 4 ? 'Finalizar demostración' : 'Continuar';
+    error.textContent = '';
+    if (step === 4) {
+      const review = root.querySelector('[data-review]')!;
+      review.replaceChildren();
+      values().forEach(([label, value]) => { const dt = document.createElement('dt'); dt.textContent = label; const dd = document.createElement('dd'); dd.textContent = value; review.append(dt, dd); });
+    }
+    if (focus) { const h = steps[step].querySelector('h2')!; h.tabIndex = -1; h.focus(); }
+  };
+  photoInput.addEventListener('change', () => {
+    urls.forEach(URL.revokeObjectURL); urls = [];
+    const previews = root.querySelector('[data-previews]')!; previews.replaceChildren();
+    error.textContent = photoError();
+    if (error.textContent) return;
+    [...(photoInput.files || [])].forEach((file, i) => {
+      const img = document.createElement('img'); const url = URL.createObjectURL(file); urls.push(url);
+      img.src = url; img.alt = `Fotografía de ejemplo ${i + 1}`; img.width = 100; img.height = 100;
+      img.addEventListener('error', () => { error.textContent = 'No se puede leer una de las imágenes. Selecciona otro archivo.'; photoInput.setCustomValidity('Imagen ilegible.'); });
+      previews.append(img);
+    });
+    photoInput.setCustomValidity('');
+  });
+  back.addEventListener('click', () => { step--; render(); });
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const controls = [...steps[step].querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input,textarea')];
+    const invalid = controls.find(el => !el.checkValidity());
+    let message = '';
+    if (step === 0 && !form.querySelector('input[name=type]:checked')) message = 'Elige el tipo de incidencia para continuar.';
+    if (step === 1 && String(new FormData(form).get('description') || '').trim().length < 15) message = 'Describe lo ocurrido con al menos 15 caracteres.';
+    if (step === 2 && String(new FormData(form).get('location') || '').trim().length < 5) message = 'Añade una referencia de ubicación de al menos 5 caracteres.';
+    if (step === 3) message = photoError();
+    if (invalid || message) { error.textContent = message || (step === 4 ? 'Confirma que entiendes el carácter de demostración.' : 'Revisa el campo indicado.'); (invalid || controls[0])?.focus(); return; }
+    if (step < 4) { step++; render(); } else { form.hidden = true; complete.hidden = false; complete.focus(); }
+  });
+  root.querySelector('[data-restart]')?.addEventListener('click', () => {
+    form.reset(); urls.forEach(URL.revokeObjectURL); urls = []; photoInput.setCustomValidity('');
+    root.querySelector('[data-previews]')!.replaceChildren(); form.hidden = false; complete.hidden = true; step = 0; render();
+  });
+  root.querySelector('[data-download]')?.addEventListener('click', () => downloadFile('borrador-incidencia-DEMO.txt', 'DEMOSTRACIÓN — NO ENVIADO AL AYUNTAMIENTO\n\n' + values().map(([k,v]) => `${k}: ${v}`).join('\n\n'), 'text/plain;charset=utf-8'));
+</script>

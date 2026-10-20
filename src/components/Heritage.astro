@@ -1,0 +1,19 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import bridge from '../assets/puente.jpg';
+---
+<section class="heritage-section section-pad" id="patrimonio" aria-labelledby="heritage-title">
+  <p class="section-label label-sun">02 / Memoria del pueblo</p>
+  <h2 id="heritage-title" class="editorial-heading" data-reveal>Un puente.<br />Muchas generaciones.</h2>
+  <div class="heritage-grid">
+    <figure class="heritage-photo"><Photo src={bridge} alt="Los cuatro arcos de granito del Puente Viejo de Navaluenga sobre el Alberche." sizes="(min-width: 900px) 72vw, 100vw" /><figcaption>Puente Viejo de Navaluenga · Fotografía actual en blanco y negro.</figcaption></figure>
+    <div class="heritage-story">
+      <p class="heritage-century"><span class="sr-only">Siglo </span>XVI</p>
+      <p>El llamado puente románico nació para unir las dos orillas y facilitar el paso del ganado hacia la sierra.</p>
+      <p class="heritage-detail">Lo construyeron las aportaciones de los pueblos del Concejo de Burgohondo y del propio Ayuntamiento. Una historia compartida, piedra a piedra.</p>
+      <a class="text-link" href="/historia/">Conocer nuestra historia <Icon /></a>
+    </div>
+  </div>
+  <nav class="heritage-links" aria-label="Memoria de Navaluenga"><a href="/historia/#puente">El puente <Icon /></a><a href="/historia/#pueblo">El pueblo <Icon /></a><a href="/historia/#tradiciones">Las tradiciones <Icon /></a></nav>
+</section>

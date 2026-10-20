@@ -1,0 +1,14 @@
+---
+import Article from '../layouts/Article.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import river from '../assets/alberche.jpg';
+import { official, municipality } from '../data/site';
+---
+<Article title="El río Alberche" heading="Un pueblo con el río dentro." description="Conoce el Alberche y las piscinas naturales de Navaluenga. Ubicación e información para preparar tu visita a la ribera." intro="El Alberche forma parte del paisaje y de la vida cotidiana de Navaluenga. Acércate a sus orillas y deja que el paseo encuentre su ritmo.">
+  <figure slot="cover" class="article-cover river-cover"><Photo src={river} alt="Agua, roca y árboles en la ribera del Alberche en Navaluenga." sizes="(min-width: 1200px) 1200px, 100vw" eager /><figcaption>Río Alberche en Navaluenga · chispita 666 / CC BY 2.0.</figcaption></figure>
+  <section id="piscinas"><h2>Las piscinas naturales</h2><p>El entorno del Puente Viejo es uno de los puntos de encuentro con el río. En verano, este espacio de ribera se utiliza como zona de baño.</p><p>El estado del agua y las condiciones de uso pueden cambiar. Consulta los avisos municipales antes de acercarte y respeta la señalización del lugar.</p><a class="text-link" href={municipality.bridgeMap}>Ver la ubicación del puente <Icon /></a></section>
+  <section id="antes-de-ir"><h2>Antes de ir</h2><ul class="prose-list"><li>Lleva contigo los residuos y cuida la vegetación de la ribera.</li><li>Elige calzado adecuado para caminar junto al agua.</li><li>Consulta las condiciones del entorno y cualquier restricción vigente en la web municipal.</li><li>Si necesitas un acceso adaptado, confirma el recorrido con el Ayuntamiento antes de desplazarte.</li></ul><p>No disponemos de una ficha verificada de accesibilidad de los accesos a las piscinas naturales.</p><a class="text-link" href={official.notices}>Consultar avisos oficiales <Icon /></a></section>
+  <section><h2>¿Quieres seguir caminando?</h2><p>Desde el pueblo parten caminos hacia la sierra. Elige tu recorrido con la información municipal a mano.</p><a class="button button-sun" href="/experiencias/#caminar">Conocer los caminos <Icon /></a></section>
+  <p class="source-note">Fuentes: <a href={official.nature}>Entorno y naturaleza</a> y <a href={official.routes}>Senderismo</a>, Ayuntamiento de Navaluenga. Consulta: 30 de septiembre de 2026.</p>
+</Article>

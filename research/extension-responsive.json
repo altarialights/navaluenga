@@ -1,0 +1,236 @@
+[
+  {
+    "route": "tramites",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "sede",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "incidencias",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "agenda",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "instalaciones",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "vivir",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "avisos",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "mapa",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "empresas",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "participa",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "contacto",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "ayudas",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "buscar",
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "viewport": 390,
+      "width": 390
+    }
+  },
+  {
+    "route": "tramites",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "sede",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "incidencias",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "agenda",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "instalaciones",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "vivir",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "avisos",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "mapa",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "empresas",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "participa",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "contacto",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "ayudas",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "route": "buscar",
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "viewport": 1440,
+      "width": 1440
+    }
+  }
+]

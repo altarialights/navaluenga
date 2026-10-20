@@ -1,0 +1,26 @@
+[
+  {
+    "width": 390,
+    "normal": true,
+    "zoom": {
+      "content": 390,
+      "viewport": 390
+    }
+  },
+  {
+    "width": 768,
+    "normal": true,
+    "zoom": {
+      "content": 768,
+      "viewport": 768
+    }
+  },
+  {
+    "width": 1440,
+    "normal": true,
+    "zoom": {
+      "content": 1440,
+      "viewport": 1440
+    }
+  }
+]

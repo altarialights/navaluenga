@@ -1,0 +1,202 @@
+[
+  {
+    "width": 390,
+    "path": "empresas",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "servicios",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "participa",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "rio",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "historia",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "visita",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "experiencias",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "creditos",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "privacidad",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 390,
+    "path": "accesibilidad",
+    "normal": true,
+    "zoom": {
+      "width": 390,
+      "viewport": 390,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "empresas",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "servicios",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "participa",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "rio",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "historia",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "visita",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "experiencias",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "creditos",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "privacidad",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  },
+  {
+    "width": 1440,
+    "path": "accesibilidad",
+    "normal": true,
+    "zoom": {
+      "width": 1440,
+      "viewport": 1440,
+      "overflow": []
+    }
+  }
+]

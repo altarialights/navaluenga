@@ -1,0 +1,32 @@
+---
+import { getImage, Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import hero from '../assets/hero-conceptual.png';
+import foliage from '../assets/hero-foliage.webp';
+const mobileAvif = await getImage({ src: hero, width: 640, height: 1152, fit: 'cover', position: 'centre', format: 'avif', quality: 52 });
+const mobileWebp = await getImage({ src: hero, width: 640, height: 1152, fit: 'cover', position: 'centre', format: 'webp', quality: 75 });
+const desktopAvif = await getImage({ src: hero, widths: [960, 1440, 1536], format: 'avif', quality: 58 });
+const desktopWebp = await getImage({ src: hero, widths: [960, 1440, 1536], format: 'webp', quality: 80 });
+const fallback = await getImage({ src: hero, width: 1536, format: 'jpg', quality: 82 });
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-image"><picture>
+    <source media="(max-width: 599px)" srcset={mobileAvif.src} type="image/avif" width="640" height="1152" />
+    <source media="(max-width: 599px)" srcset={mobileWebp.src} type="image/webp" width="640" height="1152" />
+    <source srcset={desktopAvif.srcSet.attribute} sizes="100vw" type="image/avif" />
+    <source srcset={desktopWebp.srcSet.attribute} sizes="100vw" type="image/webp" />
+    <img src={fallback.src} width={hero.width} height={hero.height} alt="" loading="eager" decoding="sync" fetchpriority="high" />
+  </picture></div>
+  <h1 id="hero-title">NAVALUENGA</h1>
+  <div class="hero-foliage hero-foliage-left" aria-hidden="true"><Image src={foliage} alt="" widths={[480, 800, 1280]} sizes="(max-width: 599px) 95vw, (max-width: 899px) 70vw, 57vw" format="webp" quality={78} loading="eager" fetchpriority="low" /></div>
+  <div class="hero-foliage hero-foliage-right" aria-hidden="true"><Image src={foliage} alt="" widths={[480, 800, 1280]} sizes="(max-width: 599px) 70vw, (max-width: 899px) 55vw, 40vw" format="webp" quality={78} loading="eager" fetchpriority="low" /></div>
+  <div class="hero-message">
+    <p>Hay lugares<br />que te sientan bien.</p>
+    <div class="hero-actions">
+      <a class="button button-sun button-pill" href="#visita">Prepara tu visita <Icon /></a>
+      <a class="button button-outline button-pill" href="#descubrir">Explora el pueblo <Icon name="down" /></a>
+    </div>
+  </div>
+  <span class="hero-location"><Icon name="pin" /> Valle del Alberche · Ávila</span>
+  <a class="hero-credit" href="/creditos/#hero">Paisaje y follaje conceptuales · Imágenes generadas</a>
+</section>

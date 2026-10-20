@@ -1,0 +1,100 @@
+---
+import Icon from './Icon.astro';
+import { official } from '../data/site';
+const { home = false } = Astro.props;
+const path = Astro.url.pathname;
+const groups = [
+  { label: 'Descubrir', href: '/#descubrir', links: [['Turismo y experiencias', '/experiencias/'], ['El río Alberche', '/rio/'], ['Historia y patrimonio', '/historia/'], ['Prepara tu visita', '/visita/'], ['Mapa interactivo', '/mapa/']] },
+  { label: 'Vivir aquí', href: home ? '/#vivir' : '/vivir/', links: [['Información práctica', '/vivir/'], ['Agenda municipal', '/agenda/'], ['Instalaciones y reservas', '/instalaciones/'], ['Avisos municipales', '/avisos/']] },
+  { label: 'Trámites y servicios', href: '/tramites/', links: [['Todos los trámites', '/tramites/'], ['Comunicar una incidencia', '/incidencias/'], ['Ayudas y empleo', '/ayudas/'], ['Sede electrónica: guía', '/sede/']] },
+  { label: 'Ayuntamiento', href: '/contacto/', links: [['Contacto y atención', '/contacto/'], ['Navaluenga te escucha', '/participa/'], ['Servicios y teléfonos', '/servicios/']] },
+];
+---
+<header class:list={['site-header', { 'header-home': home }]} data-header>
+  <div class="header-inner">
+    <a href="/" class:list={['brand', { 'brand-home': home }]} aria-label="Navaluenga, inicio">
+      <span class="brand-symbol" aria-hidden="true"><Icon name="river" /></span><span class="brand-lockup"><span class="brand-location">{home ? 'VALLE DEL ALBERCHE · ÁVILA' : 'AYUNTAMIENTO DE'}</span><span class="brand-wordmark">NAVALUENGA</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden><span>Menú</span><span class="menu-glyph" aria-hidden="true"><span></span><span></span></span></button>
+    <nav id="main-navigation" aria-label="Navegación principal">
+      {groups.slice(0,3).map(group => <div class="nav-group"><div class="nav-group-label"><a href={group.href} aria-current={path === group.href ? 'page' : undefined}>{group.label}</a><button type="button" class="nav-expand" aria-label={`Mostrar opciones de ${group.label}`} aria-expanded="false" hidden><Icon name="chevron" /></button></div><div class="nav-dropdown">{group.links.map(([label,href]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}</div></div>)}
+      <a href="/empresas/" aria-current={path.startsWith('/empresas/') ? 'page' : undefined}>Empresas</a>
+      {groups.slice(3).map(group => <div class="nav-group"><div class="nav-group-label"><a href={group.href} aria-current={path === group.href ? 'page' : undefined}>{group.label}</a><button type="button" class="nav-expand" aria-label={`Mostrar opciones de ${group.label}`} aria-expanded="false" hidden><Icon name="chevron" /></button></div><div class="nav-dropdown">{group.links.map(([label,href]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}</div></div>)}
+      <a href={official.sede} class="nav-sede">Sede electrónica <Icon /></a>
+      <a class="nav-search" href="/buscar/" aria-label="Buscar en la web"><Icon name="search" /></a>
+    </nav>
+  </div>
+</header>
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = header?.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = header?.querySelector<HTMLElement>('nav');
+  if (header && toggle && nav) {
+    toggle.hidden = false;
+    header.dataset.enhanced = 'true';
+    const mobile = matchMedia('(max-width: 1199px)');
+    const syncNav = () => { nav.inert = mobile.matches && !header.classList.contains('menu-open'); };
+    const expansions = [...header.querySelectorAll<HTMLButtonElement>('.nav-expand')];
+    const closeGroups = () => expansions.forEach(button => {
+      button.setAttribute('aria-expanded', 'false');
+      button.closest('.nav-group')?.classList.remove('nav-group-open');
+    });
+    expansions.forEach((button, index) => {
+      button.hidden = false;
+      const dropdown = button.closest('.nav-group')!.querySelector<HTMLElement>('.nav-dropdown')!;
+      dropdown.id = `nav-options-${index}`; button.setAttribute('aria-controls', dropdown.id);
+      button.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') !== 'true'; closeGroups();
+        button.setAttribute('aria-expanded', String(open)); button.closest('.nav-group')!.classList.toggle('nav-group-open', open);
+      });
+    });
+    const close = (returnFocus = false) => {
+      toggle.setAttribute('aria-expanded', 'false');
+      header.classList.remove('menu-open');
+      syncNav();
+      closeGroups();
+      if (returnFocus) toggle.focus();
+    };
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      header.classList.toggle('menu-open', open);
+      syncNav();
+      if (open) nav.querySelector<HTMLAnchorElement>('a')?.focus();
+    });
+    header.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        const expanded = expansions.find(button => button.getAttribute('aria-expanded') === 'true');
+        if (expanded) { closeGroups(); expanded.focus(); event.stopPropagation(); return; }
+      }
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') close(true);
+    });
+    header.addEventListener('focusout', () => {
+      requestAnimationFrame(() => {
+        if (!header.contains(document.activeElement)) close();
+      });
+    });
+    nav.addEventListener('click', (event) => {
+      const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a');
+      if (!link) return;
+      close();
+      const destination = new URL(link.href);
+      if (destination.pathname === location.pathname && destination.hash) {
+        const target = document.querySelector<HTMLElement>(destination.hash);
+        if (target) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
+      }
+    });
+    document.addEventListener('click', (event) => { if (!header.contains(event.target as Node)) close(); });
+    mobile.addEventListener('change', () => close());
+    syncNav();
+    let scheduled = false;
+    const updateScroll = () => {
+      header.classList.toggle('is-scrolled', scrollY > 40);
+      scheduled = false;
+    };
+    addEventListener('scroll', () => {
+      if (!scheduled) { scheduled = true; requestAnimationFrame(updateScroll); }
+    }, { passive: true });
+    updateScroll();
+  }
+</script>

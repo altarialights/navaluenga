@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-20T09:50:40.043471+00:00",
+  "title": "Design System: Navaluenga",
+  "extensions": {
+    "colorMeta": {
+      "forest": {
+        "role": "primary",
+        "displayName": "Bosque",
+        "tonalRamp": [
+          "oklch(0.150 0.05066 163.804)",
+          "oklch(0.264 0.05066 163.804)",
+          "oklch(0.379 0.05066 163.804)",
+          "oklch(0.493 0.05066 163.804)",
+          "oklch(0.607 0.05066 163.804)",
+          "oklch(0.721 0.05066 163.804)",
+          "oklch(0.836 0.05066 163.804)",
+          "oklch(0.950 0.05066 163.804)"
+        ]
+      },
+      "deep": {
+        "role": "primary",
+        "displayName": "Profundo",
+        "tonalRamp": [
+          "oklch(0.150 0.04824 165.105)",
+          "oklch(0.264 0.04824 165.105)",
+          "oklch(0.379 0.04824 165.105)",
+          "oklch(0.493 0.04824 165.105)",
+          "oklch(0.607 0.04824 165.105)",
+          "oklch(0.721 0.04824 165.105)",
+          "oklch(0.836 0.04824 165.105)",
+          "oklch(0.950 0.04824 165.105)"
+        ]
+      },
+      "sun": {
+        "role": "primary",
+        "displayName": "Solar",
+        "tonalRamp": [
+          "oklch(0.150 0.16179 94.784)",
+          "oklch(0.264 0.16179 94.784)",
+          "oklch(0.379 0.16179 94.784)",
+          "oklch(0.493 0.16179 94.784)",
+          "oklch(0.607 0.16179 94.784)",
+          "oklch(0.721 0.16179 94.784)",
+          "oklch(0.836 0.16179 94.784)",
+          "oklch(0.950 0.16179 94.784)"
+        ]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Marfil",
+        "tonalRamp": [
+          "oklch(0.150 0.01678 87.999)",
+          "oklch(0.264 0.01678 87.999)",
+          "oklch(0.379 0.01678 87.999)",
+          "oklch(0.493 0.01678 87.999)",
+          "oklch(0.607 0.01678 87.999)",
+          "oklch(0.721 0.01678 87.999)",
+          "oklch(0.836 0.01678 87.999)",
+          "oklch(0.950 0.01678 87.999)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Texto secundario",
+        "tonalRamp": [
+          "oklch(0.150 0.02814 145.113)",
+          "oklch(0.264 0.02814 145.113)",
+          "oklch(0.379 0.02814 145.113)",
+          "oklch(0.493 0.02814 145.113)",
+          "oklch(0.607 0.02814 145.113)",
+          "oklch(0.721 0.02814 145.113)",
+          "oklch(0.836 0.02814 145.113)",
+          "oklch(0.950 0.02814 145.113)"
+        ]
+      },
+      "muted-on-forest": {
+        "role": "neutral",
+        "displayName": "Texto secundario sobre bosque",
+        "tonalRamp": [
+          "oklch(0.150 0.02344 137.252)",
+          "oklch(0.264 0.02344 137.252)",
+          "oklch(0.379 0.02344 137.252)",
+          "oklch(0.493 0.02344 137.252)",
+          "oklch(0.607 0.02344 137.252)",
+          "oklch(0.721 0.02344 137.252)",
+          "oklch(0.836 0.02344 137.252)",
+          "oklch(0.950 0.02344 137.252)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Separador",
+        "tonalRamp": [
+          "oklch(0.150 0.02821 121.434)",
+          "oklch(0.264 0.02821 121.434)",
+          "oklch(0.379 0.02821 121.434)",
+          "oklch(0.493 0.02821 121.434)",
+          "oklch(0.607 0.02821 121.434)",
+          "oklch(0.721 0.02821 121.434)",
+          "oklch(0.836 0.02821 121.434)",
+          "oklch(0.950 0.02821 121.434)"
+        ]
+      },
+      "sun-hover": {
+        "role": "primary",
+        "displayName": "Solar al pasar el puntero",
+        "tonalRamp": [
+          "oklch(0.150 0.15816 95.322)",
+          "oklch(0.264 0.15816 95.322)",
+          "oklch(0.379 0.15816 95.322)",
+          "oklch(0.493 0.15816 95.322)",
+          "oklch(0.607 0.15816 95.322)",
+          "oklch(0.721 0.15816 95.322)",
+          "oklch(0.836 0.15816 95.322)",
+          "oklch(0.950 0.15816 95.322)"
+        ]
+      },
+      "ivory-hover": {
+        "role": "neutral",
+        "displayName": "Marfil de notas y hover",
+        "tonalRamp": [
+          "oklch(0.150 0.02645 90.107)",
+          "oklch(0.264 0.02645 90.107)",
+          "oklch(0.379 0.02645 90.107)",
+          "oklch(0.493 0.02645 90.107)",
+          "oklch(0.607 0.02645 90.107)",
+          "oklch(0.721 0.02645 90.107)",
+          "oklch(0.836 0.02645 90.107)",
+          "oklch(0.950 0.02645 90.107)"
+        ]
+      },
+      "hero-button": {
+        "role": "neutral",
+        "displayName": "Bosque translúcido del hero",
+        "tonalRamp": [
+          "oklch(0.150 0.05066 163.804 / 0.8)",
+          "oklch(0.264 0.05066 163.804 / 0.8)",
+          "oklch(0.379 0.05066 163.804 / 0.8)",
+          "oklch(0.493 0.05066 163.804 / 0.8)",
+          "oklch(0.607 0.05066 163.804 / 0.8)",
+          "oklch(0.721 0.05066 163.804 / 0.8)",
+          "oklch(0.836 0.05066 163.804 / 0.8)",
+          "oklch(0.950 0.05066 163.804 / 0.8)"
+        ]
+      },
+      "home-paper": {
+        "role": "neutral",
+        "displayName": "Papel de portada",
+        "tonalRamp": [
+          "oklch(0.150 0.009 95)",
+          "oklch(0.264 0.009 95)",
+          "oklch(0.379 0.009 95)",
+          "oklch(0.493 0.009 95)",
+          "oklch(0.607 0.009 95)",
+          "oklch(0.721 0.009 95)",
+          "oklch(0.836 0.009 95)",
+          "oklch(0.950 0.009 95)"
+        ]
+      },
+      "header-overlay": {
+        "role": "neutral",
+        "displayName": "Bosque superpuesto de cabecera",
+        "tonalRamp": [
+          "oklch(0.150 0.05066 163.804 / 0.7216)",
+          "oklch(0.264 0.05066 163.804 / 0.7216)",
+          "oklch(0.379 0.05066 163.804 / 0.7216)",
+          "oklch(0.493 0.05066 163.804 / 0.7216)",
+          "oklch(0.607 0.05066 163.804 / 0.7216)",
+          "oklch(0.721 0.05066 163.804 / 0.7216)",
+          "oklch(0.836 0.05066 163.804 / 0.7216)",
+          "oklch(0.950 0.05066 163.804 / 0.7216)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Nombre del lugar",
+        "purpose": "NAVALUENGA, solo en el hero."
+      },
+      "headline": {
+        "displayName": "Titular editorial",
+        "purpose": "Base de las secciones de portada."
+      },
+      "hero-message": {
+        "displayName": "Mensaje del hero",
+        "purpose": "CSS 450; instancia estática Fraunces 400."
+      },
+      "article-heading": {
+        "displayName": "Titular de artículo",
+        "purpose": "CSS 550; instancia estática Fraunces 600."
+      },
+      "title": {
+        "displayName": "Título de sección",
+        "purpose": "CSS 550; instancia estática Fraunces 600."
+      },
+      "body": {
+        "displayName": "Texto de lectura",
+        "purpose": "DM Sans 400; interfaz y contenido práctico."
+      },
+      "label": {
+        "displayName": "Texto de botón",
+        "purpose": "DM Sans 500 en botones base; el hero tiene su variante local."
+      },
+      "caption": {
+        "displayName": "Pie de imagen",
+        "purpose": "Contexto y atribución."
+      },
+      "home-headline": {
+        "displayName": "Titular de nuevos bloques de portada",
+        "purpose": "Variante local de home; no reemplaza titulares de artículos o directorio."
+      },
+      "home-hero-action": {
+        "displayName": "Acciones del hero de portada",
+        "purpose": "DM Sans 500; 1rem, .95rem en móvil."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hero-message",
+        "value": "0 2px 20px #071c1440",
+        "purpose": "Sombra tipográfica sobre fotografía; no elevación de tarjeta."
+      },
+      {
+        "name": "hero-title",
+        "value": "0 3px 28px #061c1430",
+        "purpose": "Sombra tipográfica del título de portada."
+      },
+      {
+        "name": "header-scrolled",
+        "value": "0 6px 24px #081d171c",
+        "purpose": "Cabecera tras 40px de scroll."
+      },
+      {
+        "name": "navigation-dropdown",
+        "value": "0 14px 32px #061c142e",
+        "purpose": "Desplegable de escritorio."
+      },
+      {
+        "name": "mobile-menu",
+        "value": "0 18px 40px #061c1433",
+        "purpose": "Panel móvil flotante."
+      },
+      {
+        "name": "quick-dock",
+        "value": "0 5px 25px #061c1438",
+        "purpose": "Dock móvil; no aplicar a bloques editoriales."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Entradas editoriales y movimiento de flechas."
+      },
+      {
+        "name": "button",
+        "value": "150ms",
+        "purpose": "Color y pulsación."
+      },
+      {
+        "name": "panel",
+        "value": "220ms",
+        "purpose": "Entrada de opacidad del panel de experiencias."
+      },
+      {
+        "name": "desktop-image",
+        "value": "250ms",
+        "purpose": "Entrada de imagen en experiencias de escritorio."
+      },
+      {
+        "name": "editorial",
+        "value": "450ms",
+        "purpose": "Entradas editoriales existentes; desplazamiento de 10px."
+      },
+      {
+        "name": "home-title",
+        "value": "850ms",
+        "purpose": "Título desde opacidad .7 y translateY(16px)."
+      },
+      {
+        "name": "home-copy",
+        "value": "800ms 120ms",
+        "purpose": "Mensaje desde opacidad .65 y translateY(12px)."
+      },
+      {
+        "name": "foliage-left",
+        "value": "1200ms",
+        "purpose": "Asentamiento de rama izquierda."
+      },
+      {
+        "name": "foliage-right",
+        "value": "1400ms",
+        "purpose": "Asentamiento de rama derecha."
+      },
+      {
+        "name": "header-state",
+        "value": "240ms ease",
+        "purpose": "Fondo y sombra."
+      },
+      {
+        "name": "navigation-panel",
+        "value": "180ms",
+        "purpose": "Apertura del panel y desplegables."
+      },
+      {
+        "name": "menu-lines",
+        "value": "200ms ease",
+        "purpose": "Conversión de dos líneas en aspa."
+      },
+      {
+        "name": "dock-icon",
+        "value": "180ms",
+        "purpose": "Fondo y pulsación de cápsula."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-max",
+        "value": "599px"
+      },
+      {
+        "name": "navigation-max",
+        "value": "1199px"
+      },
+      {
+        "name": "experiences-grid-min",
+        "value": "900px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1100px"
+      },
+      {
+        "name": "wide-container-min",
+        "value": "1921px"
+      },
+      {
+        "name": "home-landscape",
+        "value": "(max-height: 600px) and (min-width: 600px)"
+      },
+      {
+        "name": "home-tablet-max",
+        "value": "899px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón solar",
+      "kind": "button",
+      "refersTo": "button-sun",
+      "description": "Variante implementada; conserva foco, hover, pulsación y movimiento reducido.",
+      "html": "<a class=\"ds-button\" href=\"/#visita\">Prepara tu visita<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
+      "css": ".ds-button{min-height:50px;padding:.8rem 1.4rem;display:inline-flex;justify-content:center;align-items:center;gap:1rem;font-family:var(--font-sans);font-weight:500;font-size:1.0625rem;line-height:1.55;text-decoration:none;border:1px solid transparent;transition:background-color 150ms,color 150ms,transform 150ms;}.ds-button:active{transform:translateY(1px);}.ds-icon{width:1.25em;height:1.25em;flex:none;transition:transform 150ms var(--ease-out);}@media(hover:hover){.ds-button:hover .ds-icon{transform:translate(2px,-2px);}}@media(prefers-reduced-motion:reduce){.ds-button,.ds-icon{transition:none;}.ds-button:active,.ds-button:hover .ds-icon{transform:none;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}.ds-button{background:var(--color-sun);color:var(--color-forest);}@media(hover:hover){.ds-button:hover{background:#ffdd50;}}"
+    },
+    {
+      "name": "Botón solar del hero",
+      "kind": "button",
+      "refersTo": "home-hero-primary",
+      "description": "Variante local DM Sans del hero de portada; conserva foco, hover y pulsación.",
+      "html": "<a class=\"ds-button\" href=\"/#visita\">Prepara tu visita<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
+      "css": ".ds-button{min-height:50px;padding:.8rem 1.4rem;display:inline-flex;justify-content:center;align-items:center;gap:1rem;font-family:var(--font-sans);font-weight:500;font-size:1.0625rem;line-height:1.55;text-decoration:none;border:1px solid transparent;transition:background-color 150ms,color 150ms,transform 150ms;}.ds-button:active{transform:translateY(1px);}.ds-icon{width:1.25em;height:1.25em;flex:none;transition:transform 150ms var(--ease-out);}@media(hover:hover){.ds-button:hover .ds-icon{transform:translate(2px,-2px);}}@media(prefers-reduced-motion:reduce){.ds-button,.ds-icon{transition:none;}.ds-button:active,.ds-button:hover .ds-icon{transform:none;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}.ds-button{font:500 1rem var(--font-sans);min-height:54px;padding:.8rem 1.5rem;border-radius:999px;}@media(max-width:599px){.ds-button{font-size:.95rem;min-height:48px;width:min(100%,260px);padding:.65rem 1rem;}}.ds-button{background:var(--color-sun);color:var(--color-forest);}@media(hover:hover){.ds-button:hover{background:#ffdd50;}}"
+    },
+    {
+      "name": "Botón secundario del hero",
+      "kind": "button",
+      "refersTo": "home-hero-secondary",
+      "description": "Variante local DM Sans del hero de portada; conserva foco, hover y pulsación.",
+      "html": "<a class=\"ds-button\" href=\"/#descubrir\">Explora el pueblo<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 3v18m-8-8 8 8 8-8\"/></svg></a>",
+      "css": ".ds-button{min-height:50px;padding:.8rem 1.4rem;display:inline-flex;justify-content:center;align-items:center;gap:1rem;font-family:var(--font-sans);font-weight:500;font-size:1.0625rem;line-height:1.55;text-decoration:none;border:1px solid transparent;transition:background-color 150ms,color 150ms,transform 150ms;}.ds-button:active{transform:translateY(1px);}.ds-icon{width:1.25em;height:1.25em;flex:none;transition:transform 150ms var(--ease-out);}@media(hover:hover){.ds-button:hover .ds-icon{transform:translate(2px,-2px);}}@media(prefers-reduced-motion:reduce){.ds-button,.ds-icon{transition:none;}.ds-button:active,.ds-button:hover .ds-icon{transform:none;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}.ds-button{font:500 1rem var(--font-sans);min-height:54px;padding:.8rem 1.5rem;border-radius:999px;}@media(max-width:599px){.ds-button{font-size:.95rem;min-height:48px;width:min(100%,260px);padding:.65rem 1rem;}}.ds-button{background:#123728cc;color:var(--color-ivory);border:1.5px solid var(--color-ivory);}@media(hover:hover){.ds-button:hover{background:var(--color-ivory);color:var(--color-forest);}}"
+    },
+    {
+      "name": "Botón de línea solar",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Variante implementada; conserva foco, hover, pulsación y movimiento reducido.",
+      "html": "<div class=\"ds-stage\"><a class=\"ds-button\" href=\"/participa/\">Comparte tu idea<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a></div>",
+      "css": ".ds-button{min-height:50px;padding:.8rem 1.4rem;display:inline-flex;justify-content:center;align-items:center;gap:1rem;font-family:var(--font-sans);font-weight:500;font-size:1.0625rem;line-height:1.55;text-decoration:none;border:1px solid transparent;transition:background-color 150ms,color 150ms,transform 150ms;}.ds-button:active{transform:translateY(1px);}.ds-icon{width:1.25em;height:1.25em;flex:none;transition:transform 150ms var(--ease-out);}@media(hover:hover){.ds-button:hover .ds-icon{transform:translate(2px,-2px);}}@media(prefers-reduced-motion:reduce){.ds-button,.ds-icon{transition:none;}.ds-button:active,.ds-button:hover .ds-icon{transform:none;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}.ds-stage{background:var(--color-forest);padding:1rem;}.ds-button{border-color:var(--color-sun);background:transparent;color:var(--color-sun);}@media(hover:hover){.ds-button:hover{background:var(--color-sun);color:var(--color-forest);}}"
+    },
+    {
+      "name": "Búsqueda del directorio",
+      "kind": "input",
+      "refersTo": "directory-input",
+      "description": "Campo de búsqueda visible al disponer de JavaScript; el ejemplo muestra su presentación.",
+      "html": "<form class=\"ds-search\" role=\"search\" action=\"/empresas/\"><label for=\"ds-business-query\">Buscar en el directorio</label><div><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" aria-hidden=\"true\"><path d=\"m16 16 5 5M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0\"/></svg><input id=\"ds-business-query\" name=\"q\" type=\"search\" placeholder=\"Nombre o actividad…\" autocomplete=\"off\"/><button type=\"submit\">Buscar</button></div></form>",
+      "css": ".ds-search{font-family:var(--font-sans);color:var(--color-forest);line-height:1.55;}.ds-search label{font-size:.75rem;display:block;margin-bottom:.4rem;}.ds-search>div{display:flex;align-items:center;gap:.75rem;padding-left:.8rem;border:1px solid var(--color-forest);}.ds-icon{width:1.25em;height:1.25em;flex:none;}.ds-search input{font-family:var(--font-sans);min-height:48px;padding:.5rem 0;background:transparent;width:230px;min-width:0;font-size:16px;caret-color:var(--color-forest);border:0;}.ds-search input::placeholder{color:var(--color-muted);}.ds-search button{font-family:var(--font-sans);font-size:1rem;background:var(--color-forest);color:var(--color-ivory);border:0;min-height:48px;padding:.5rem 1rem;flex-shrink:0;white-space:nowrap;}@media(max-width:599px){.ds-search input{width:100%;}.ds-search>div{gap:.5rem;}.ds-search button{padding-inline:.75rem;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}"
+    },
+    {
+      "name": "Navegación principal",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Muestra de destinos y estados de escritorio compartidos; Header.astro mantiene panel móvil, grupos y gestión de foco.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegación principal\"><a href=\"/#descubrir\">Descubrir</a><a href=\"/#vivir\">Vivir aquí</a><a href=\"/tramites/\">Trámites y servicios</a><a href=\"/contacto/\">Ayuntamiento</a><a href=\"/empresas/\">Empresas</a><a class=\"ds-sede\" href=\"https://navaluenga.sedelectronica.es/\">Sede electrónica<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(.5rem,1.1vw,1.3rem);padding:0 var(--gutter);min-height:88px;background:var(--color-forest);color:var(--color-ivory);font-family:var(--font-sans);line-height:1.55;}.ds-nav a{color:inherit;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:400;transition:color 160ms;}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--color-sun);}.ds-nav .ds-sede{background:var(--color-ivory);color:var(--color-forest);border-radius:999px;padding:.55rem 1rem;font-size:.8rem;transition:background-color 160ms;}.ds-nav .ds-sede:hover{background:var(--color-sun);}.ds-icon{width:1.25em;height:1.25em;flex:none;}.ds-nav a:focus-visible{outline:3px solid currentColor;outline-offset:5px;}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none;}}"
+    },
+    {
+      "name": "Categorías del directorio",
+      "kind": "chip",
+      "refersTo": "directory-category",
+      "description": "Enlaces de categoría con estado actual; no dependen del filtro JavaScript.",
+      "html": "<nav class=\"ds-categories\" aria-label=\"Categorías del directorio\"><a href=\"/empresas/\" aria-current=\"page\">Todos</a></nav>",
+      "css": ".ds-categories{display:flex;flex-wrap:wrap;gap:.5rem .75rem;padding:1rem 0;border-block:1px solid var(--line);font-family:var(--font-sans);font-size:1rem;line-height:1.55;color:var(--color-forest);}.ds-categories a{display:inline-flex;align-items:center;text-decoration:none;color:inherit;padding:.65rem 1rem;min-height:44px;border-radius:999px;border:1px solid var(--line);}.ds-categories a[aria-current=\"page\"]{background:var(--color-forest);color:var(--color-ivory);border-color:var(--color-forest);}@media(max-width:599px){.ds-categories{gap:.5rem;}.ds-categories a{font-size:.8125rem;padding-inline:.9rem;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}"
+    },
+    {
+      "name": "Selector de experiencias",
+      "kind": "custom",
+      "refersTo": "experience-tab",
+      "description": "Estado visual del selector; sin JavaScript los enlaces llevan a bloques visibles.",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"Tipos de experiencias\"><a href=\"/#panel-caminar\" aria-selected=\"true\">Caminar</a><a href=\"/#panel-saborear\">Saborear</a><a href=\"/#panel-descansar\">Descansar</a></nav>",
+      "css": ".ds-tabs{display:flex;flex-wrap:wrap;gap:1rem;background:var(--color-forest);padding:1rem;color:var(--color-ivory);font-family:var(--font-sans);line-height:1.55;border-bottom:1px solid #b9c7b58c;}.ds-tabs a{flex:1;padding:.65rem 0 .8rem;min-height:48px;color:#d2ddce;font-size:1.15rem;border-bottom:4px solid transparent;text-decoration:none;}.ds-tabs a[aria-selected=\"true\"]{color:var(--color-sun);border-color:var(--color-sun);font-weight:500;}@media(max-width:599px){.ds-tabs{gap:.5rem;}.ds-tabs a{font-size:1rem;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}"
+    },
+    {
+      "name": "Fila del directorio",
+      "kind": "custom",
+      "refersTo": "business-row",
+      "description": "Contenedor abierto con separación por línea; ejemplo de estructura, sin negocio ficticio.",
+      "html": "<article class=\"ds-row\"><div><h2>Nombre del establecimiento</h2><p class=\"ds-address\">Dirección publicada en la fuente municipal</p></div><a class=\"ds-source\" href=\"https://aytonavaluenga.es/servicios/\">Ficha municipal<svg class=\"ds-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a></article>",
+      "css": ".ds-row{display:flex;align-items:center;justify-content:space-between;gap:2rem;border-top:1px solid var(--line);padding:1.5rem 0;color:var(--color-forest);font-family:var(--font-sans);line-height:1.55;}.ds-row h2{margin:0;font-family:var(--font-serif);font-size:clamp(1.5rem,2.5vw,2.3rem);line-height:1.2;font-weight:500;}.ds-address{font-size:.875rem;color:var(--color-muted);margin:.5rem 0 0;}.ds-source{display:inline-flex;align-items:center;gap:.65rem;min-height:44px;white-space:nowrap;font-size:.8125rem;text-decoration:underline;text-underline-offset:.25em;color:var(--color-muted);}.ds-icon{width:1.25em;height:1.25em;flex:none;}@media(max-width:599px){.ds-row{flex-direction:column;align-items:start;gap:.75rem;padding-block:1.4rem;}}:focus-visible{outline:3px solid currentColor;outline-offset:5px;}"
+    },
+    {
+      "name": "Dock móvil compartido",
+      "kind": "nav",
+      "refersTo": "quick-dock",
+      "description": "Muestra estática del dock de cuatro destinos; en la web se fija solo hasta 599px y respeta el área segura.",
+      "html": "<nav class=\"ds-dock\" aria-label=\"Accesos rápidos municipales\"><a href=\"/tramites/\" aria-current=\"page\"><span class=\"ds-dock-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8M8 16h5\"/></svg></span><span>Trámites</span></a><a href=\"/incidencias/\"><span class=\"ds-dock-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0ZM15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/></svg></span><span>Incidencias</span></a><a href=\"/agenda/\"><span class=\"ds-dock-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"M4 5h16v16H4ZM8 3v4m8-4v4M4 10h16M8 14h2m4 0h2m-8 3h2\"/></svg></span><span>Agenda</span></a><a href=\"/mapa/\"><span class=\"ds-dock-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" focusable=\"false\" aria-hidden=\"true\"><path d=\"m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16\"/></svg></span><span>Mapa</span></a></nav>",
+      "css": ".ds-dock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:440px;padding:.4rem;background:var(--color-ivory);color:var(--color-forest);border-radius:20px;box-shadow:0 5px 25px #061c1438;font-family:var(--font-sans);}.ds-dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;min-height:62px;padding:.2rem;font-size:.7rem;font-weight:500;border-radius:14px;color:inherit;text-decoration:none;}.ds-dock-icon{display:flex;align-items:center;justify-content:center;width:44px;height:30px;border-radius:99px;transition:background-color 180ms,transform 180ms;}.ds-dock-icon svg{width:20px;height:20px;}.ds-dock a:hover .ds-dock-icon,.ds-dock a[aria-current=page] .ds-dock-icon{background:var(--color-sun);}.ds-dock a:active .ds-dock-icon{transform:scale(.93);}.ds-dock a:focus-visible{outline:3px solid currentColor;outline-offset:-2px;}@media(prefers-reduced-motion:reduce){.ds-dock-icon{transition:none;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Naturaleza cercana, sol, agua, identidad local y calidad editorial.",
+    "overview": "La dirección procede del encargo y sus cinco referencias aprobadas: hero inmersivo; río editorial en marfil; experiencias con fotografía e índice sobre bosque; patrimonio documental en blanco y negro; visita, servicios y participación. Son composiciones de la portada, no plantillas obligatorias para todas las páginas.\n\nLa identidad cálida, natural y editorial se apoya en fotografías grandes, serif expresiva, asimetría y separadores finos. Una única cabecera permite llegar directamente a servicios; el pie es compacto. La actualización autorizada de octubre incorpora cabecera y dock compartidos, hero con follaje y nuevas composiciones de portada. Sus variantes locales se contrastan con `src/styles/home.css`, `src/styles/navigation.css` y capturas de `.impeccable/review/home-refresh/`; no sustituyen la tipografía ni las composiciones de páginas interiores. El frontmatter es normativo; el sidecar amplía estados, movimiento y ejemplos.",
+    "keyCharacteristics": [
+      "Bosque, marfil y solar, con fotografías de gran presencia.",
+      "Display condensada para el nombre; serif editorial y sans funcional.",
+      "Composiciones abiertas y asimétricas, listas con separadores y pie compacto.",
+      "Contenido visible desde el inicio e interacciones con mejora progresiva."
+    ],
+    "rules": [],
+    "dos": [
+      "**Do** conservar el hero aprobado: NAVALUENGA seleccionable, enorme, centrado y en una línea; mensaje y dos acciones centrados.",
+      "**Do** alternar composiciones según su función, conservando paleta, fuentes y separadores.",
+      "**Do** mantener controles de al menos 44 px, foco visible, lectura con zoom y contenido accesible sin JavaScript.",
+      "**Do** usar fotografía documental para lugares y patrimonio con atribución; identificar el hero conceptual provisional de forma visible.",
+      "**Do** conservar las cinco etiquetas aprobadas únicamente en sus composiciones de referencia.",
+      "**Do** mantener el pie compacto y los servicios accesibles directamente desde la cabecera."
+    ],
+    "donts": [
+      "**Don't** introducir fondos verde claro, menta o salvia, ni el texto «Verde en todos los sentidos».",
+      "**Don't** incrustar textos de interfaz en imágenes, recortar NAVALUENGA o retrasar su aparición con animaciones.",
+      "**Don't** añadir tarjetas con sombra a cada contenido, cejas ornamentales nuevas o extender el follaje conceptual del hero a otras superficies sin una intención explícita.",
+      "**Don't** presentar el paisaje conceptual como fotografía documental ni generar patrimonio.",
+      "**Don't** simular envíos o presentar esta previsualización como sede municipal oficial."
+    ]
+  }
+}

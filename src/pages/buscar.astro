@@ -1,0 +1,13 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import FilterBar from '../components/FilterBar.astro';
+import Icon from '../components/Icon.astro';
+import { municipalPages, procedures } from '../data/municipal';
+---
+<Shell title="Buscar en Navaluenga" description="Encuentra páginas, servicios y guías de trámites en esta previsualización de Navaluenga.">
+  <div class="page-wrap" data-filter-root>
+    <header class="page-intro"><h1>¿Qué necesitas<br />encontrar?</h1><p class="lead">Servicios, información práctica y planes. Empieza por una palabra.</p></header>
+    <FilterBar label="Buscar en la web" />
+    <nav class="link-rows" aria-label="Resultados de búsqueda">{[...municipalPages, ...procedures.map(p => ({ href: `/tramites/${p.id}/`, title: p.title, description: p.description }))].map(p => <a href={p.href} data-item><span><strong>{p.title}</strong><small>{p.description}</small></span><Icon /></a>)}</nav>
+  </div>
+</Shell>

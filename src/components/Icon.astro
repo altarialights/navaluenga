@@ -1,0 +1,23 @@
+---
+interface Props { name?: 'diagonal' | 'right' | 'down' | 'menu' | 'close' | 'search' | 'chevron' | 'document' | 'pin' | 'calendar' | 'courts' | 'building' | 'message' | 'map' | 'river' | 'shop'; class?: string; }
+const { name = 'diagonal', class: className } = Astro.props;
+const paths = {
+  diagonal: 'M5 19 19 5M5 5h14v14',
+  right: 'M3 12h18m-8-8 8 8-8 8',
+  down: 'M12 3v18m-8-8 8 8 8-8',
+  menu: 'M3 7h18M3 17h18',
+  close: 'm5 5 14 14M19 5 5 19',
+  search: 'm16 16 5 5M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
+  chevron: 'm6 9 6 6 6-6',
+  document: 'M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8M8 16h5',
+  pin: 'M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0ZM15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
+  calendar: 'M4 5h16v16H4ZM8 3v4m8-4v4M4 10h16M8 14h2m4 0h2m-8 3h2',
+  courts: 'M3 5h18v14H3Zm9 0v14M3 9h18M3 15h18M7 9v6m10-6v6',
+  building: 'm3 9 9-6 9 6M4 9h16M5 20h14M7 12v5m5-5v5m5-5v5M3 21h18',
+  message: 'M4 4h16v12H9l-5 4V4Zm4 5h8m-8 3h5',
+  map: 'm3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16',
+  river: 'M3 7c3-4 6 4 9 0s6 4 9 0M3 12c3-4 6 4 9 0s6 4 9 0M3 17c3-4 6 4 9 0s6 4 9 0',
+  shop: 'M3 9h18l-2-6H5L3 9Zm1 0v12h16V9M9 21v-7h6v7M3 9c0 3 3 3 3 0 0 3 3 3 3 0 0 3 3 3 3 0 0 3 3 3 3 0 0 3 3 3 3 0 0 3 3 3 3 0',
+};
+---
+<svg class:list={['icon', className]} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={paths[name]} /></svg>

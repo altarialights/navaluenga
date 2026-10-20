@@ -1,0 +1,16 @@
+---
+interface Props { label: string; categories?: string[]; dates?: boolean; }
+const { label, categories = [], dates = false } = Astro.props;
+---
+<div class="filter-bar">
+  <label class="field search-field">{label}<input type="search" data-query placeholder="Escribe para buscar…" /></label>
+  {categories.length > 0 && <label class="field">Categoría<select data-category aria-label="Categoría"><option value="">Todas las categorías</option>{categories.map(c => <option>{c}</option>)}</select></label>}
+  {dates && <label class="field">Desde la fecha<input type="date" data-date /></label>}
+  <button type="button" class="quiet-button" data-clear>Limpiar filtros</button>
+</div>
+<p class="result-count" role="status" data-count></p>
+<p class="empty-state" data-empty hidden>No hay resultados con estos filtros. Prueba otra búsqueda o pulsa «Limpiar filtros».</p>
+<script>
+  import { initFilters } from '../scripts/municipal';
+  initFilters();
+</script>

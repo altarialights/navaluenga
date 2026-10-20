@@ -1,0 +1,24 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import DemoNote from '../components/DemoNote.astro';
+import Icon from '../components/Icon.astro';
+import { official } from '../data/site';
+---
+<Shell title="Navaluenga te escucha" description="Comparte sugerencias por el buzón oficial y explora una demostración de consultas y seguimiento de iniciativas ciudadanas.">
+  <header class="participation-hero"><h1>Navaluenga<br />te escucha.</h1><div><p class="lead">Las buenas ideas empiezan escuchando. Tu mirada también construye el pueblo que compartimos.</p><a class="button" href={official.suggestions}>Enviar una sugerencia al buzón oficial <Icon /></a></div></header>
+  <div class="page-wrap">
+    <section class="section-space two-thirds"><div><h2>Una idea puede abrir un camino.</h2><p class="lead">Piensa en una mejora, explica a quién ayudaría y cuenta cómo la imaginas. El buzón municipal es el canal para hacer llegar tu propuesta.</p><ol class="guide-list"><li>Elige un tema y una mejora concreta.</li><li>Explica el contexto sin incluir datos personales de otras personas.</li><li>Revisa tu propuesta y utiliza el buzón oficial.</li></ol></div><aside class="side-note"><h2>¿Idea o trámite?</h2><p>Una sugerencia informal no sustituye una solicitud administrativa. Si necesitas presentar documentos o ejercer un derecho, utiliza el registro oficial.</p><a class="text-link" href="/tramites/registro/">Orientación sobre registro <Icon /></a><a class="text-link" href="/incidencias/">Avisar de una incidencia <Icon /></a></aside></section>
+    <section class="section-space two-thirds"><div><h2>Imagina tu próximo encuentro.</h2><DemoNote text="Consulta ficticia. La elección solo se muestra en esta pantalla; no se guarda, envía ni suma a una encuesta real." /><form data-poll class="form-surface" hidden><fieldset><legend>¿Qué actividad te gustaría compartir?</legend><div class="poll-options">{['Paseos para descubrir el entorno', 'Talleres entre generaciones', 'Encuentros culturales', 'Actividades deportivas'].map(t => <label><input type="radio" name="choice" value={t} required />{t}</label>)}</div></fieldset><button class="button button-sun" type="submit">Probar mi respuesta</button><p role="status" data-poll-result class="small-note"></p></form></div><aside class="side-note"><h2>Procesos participativos</h2><p>No hay procesos reales incorporados a esta demo. Consulta las comunicaciones municipales para conocer los que estén abiertos.</p><a class="text-link" href={official.notices}>Consultar publicaciones oficiales <Icon /></a></aside></section>
+    <section class="section-space"><h2>De la propuesta al seguimiento</h2><DemoNote text="Iniciativa de ejemplo: «Más encuentros entre generaciones». No representa un compromiso del Ayuntamiento." /><div class="living-topics"><article><h3>Propuesta recibida · Ejemplo</h3><p>Un espacio para compartir conocimientos, oficios y experiencias.</p></article><article><h3>Evaluación pendiente · Ejemplo</h3><p>Un futuro panel publicaría avances validados, criterios y respuestas sin exponer datos personales.</p></article></div></section>
+  </div>
+<noscript><p class="page-wrap">La consulta de ejemplo necesita JavaScript. El buzón oficial sigue disponible.</p></noscript>
+</Shell>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-poll]')!;
+  form.hidden = false;
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const choice = String(new FormData(form).get('choice') || '');
+    form.querySelector('[data-poll-result]')!.textContent = `Has elegido «${choice}». Es una prueba local: no se ha enviado ni registrado tu respuesta. Puedes cambiarla.`;
+  });
+</script>

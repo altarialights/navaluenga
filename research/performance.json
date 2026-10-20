@@ -1,0 +1,146 @@
+{
+  "measuredAt": "2026-09-30T10:47:29.774Z",
+  "labOnly": true,
+  "inlineJSBytes": 2659,
+  "inlineJSGzipBytes": 1089,
+  "runs": [
+    {
+      "environment": "Chromium local; 390x844 DPR2; sin limitar",
+      "lcp": 68,
+      "cls": 0,
+      "interactions": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "resources": [
+        {
+          "name": "anton-latin-400-normal.Byf51wtH.woff2",
+          "transferSize": 18912,
+          "duration": 4
+        },
+        {
+          "name": "fraunces-latin-400-normal.6IfK1voy.woff2",
+          "transferSize": 18268,
+          "duration": 6
+        },
+        {
+          "name": "hero-conceptual.5BcVzkIU_sG8NC.avif",
+          "transferSize": 109149,
+          "duration": 6
+        },
+        {
+          "name": "Layout.C3JMMG2L.css",
+          "transferSize": 9320,
+          "duration": 7
+        },
+        {
+          "name": "dm-sans-latin-400-normal.CW0RaeGs.woff2",
+          "transferSize": 14500,
+          "duration": 4
+        },
+        {
+          "name": "dm-sans-latin-500-normal.B9HHJjqV.woff2",
+          "transferSize": 14604,
+          "duration": 3
+        },
+        {
+          "name": "fraunces-latin-600-normal.BFCDtZfi.woff2",
+          "transferSize": 18396,
+          "duration": 3
+        },
+        {
+          "name": "puente.Db6MNm38_Z1Bu2zr.avif",
+          "transferSize": 116828,
+          "duration": 4
+        },
+        {
+          "name": "alberche.CWfZYqkp_Z2h6BqT.avif",
+          "transferSize": 194794,
+          "duration": 4
+        },
+        {
+          "name": "valle.BS_kLqUk_Z1dLHSX.avif",
+          "transferSize": 94474,
+          "duration": 3
+        },
+        {
+          "name": "pueblo.jzZ6DdIf_7GUIm.avif",
+          "transferSize": 100494,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "environment": "Chromium local; 390x844 DPR2; 1.6Mbps/150ms; CPU4x",
+      "lcp": 2028,
+      "cls": 0.02135064010145169,
+      "interactions": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "resources": [
+        {
+          "name": "anton-latin-400-normal.Byf51wtH.woff2",
+          "transferSize": 18912,
+          "duration": 503
+        },
+        {
+          "name": "fraunces-latin-400-normal.6IfK1voy.woff2",
+          "transferSize": 18268,
+          "duration": 502
+        },
+        {
+          "name": "Layout.C3JMMG2L.css",
+          "transferSize": 9320,
+          "duration": 378
+        },
+        {
+          "name": "hero-conceptual.5BcVzkIU_sG8NC.avif",
+          "transferSize": 109149,
+          "duration": 1808
+        },
+        {
+          "name": "dm-sans-latin-400-normal.CW0RaeGs.woff2",
+          "transferSize": 14500,
+          "duration": 453
+        },
+        {
+          "name": "dm-sans-latin-500-normal.B9HHJjqV.woff2",
+          "transferSize": 14604,
+          "duration": 444
+        },
+        {
+          "name": "fraunces-latin-600-normal.BFCDtZfi.woff2",
+          "transferSize": 18396,
+          "duration": 553
+        },
+        {
+          "name": "valle.BS_kLqUk_Z1dLHSX.avif",
+          "transferSize": 94474,
+          "duration": 1431
+        },
+        {
+          "name": "alberche.CWfZYqkp_Z2h6BqT.avif",
+          "transferSize": 194794,
+          "duration": 1942
+        }
+      ]
+    }
+  ]
+}

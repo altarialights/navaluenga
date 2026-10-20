@@ -1,0 +1,23 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import village from '../assets/pueblo.jpg';
+---
+<section id="visita" class="visit-section section-pad" aria-labelledby="visit-title">
+  <div class="visit-heading"><h2 class="editorial-heading" id="visit-title">Ven a descubrirlo.<br /> Quédate a vivirlo.</h2><p>Un río que une paisajes,<br /> personas y oportunidades.<br /> Navaluenga, la vida entre<br /> dos orillas.<span class="sun-rule"></span></p></div>
+  <div class="visit-grid">
+    <div class="visit-planning"><h3 class="list-title">Tu próxima escapada</h3><ul class="link-list">
+      <li><a href="/visita/#llegar">Cómo llegar <Icon /></a></li>
+      <li><a href="/empresas/dormir/">Dónde dormir <Icon /></a></li>
+      <li><a href="/empresas/comer/">Dónde comer <Icon /></a></li>
+      <li><a href="/empresas/">Empresas del pueblo <Icon /></a></li>
+    </ul><a class="button button-sun" href="/visita/">Prepara tu visita <Icon /></a></div>
+    <figure class="visit-photo"><Photo src={village} alt="Navaluenga se extiende entre las laderas verdes del valle del Alberche." /><figcaption>Hay mucho por descubrir. Y tiempo para hacerlo.</figcaption></figure>
+    <div class="resident-links"><h3 class="list-title">Tu ayuntamiento, cerca</h3><ul class="link-list">
+      <li><a href="/sede/">Sede electrónica <Icon /></a></li>
+      <li><a href="/vivir/">Vivir aquí y servicios <Icon /></a></li>
+      <li><a href="/agenda/">Agenda municipal <Icon /></a></li>
+      <li><a href="/avisos/">Avisos municipales <Icon /></a></li>
+    </ul><p class="small-note">Información práctica, guías y acceso a los canales oficiales.</p></div>
+  </div>
+</section>

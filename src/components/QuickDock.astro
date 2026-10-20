@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+const path = Astro.url.pathname;
+const actions = [
+  { label: 'Trámites', href: '/tramites/', icon: 'document' as const },
+  { label: 'Incidencias', href: '/incidencias/', icon: 'pin' as const },
+  { label: 'Agenda', href: '/agenda/', icon: 'calendar' as const },
+  { label: 'Mapa', href: '/mapa/', icon: 'map' as const },
+];
+---
+<nav class="quick-dock" aria-label="Accesos rápidos municipales">
+  {actions.map(action => <a href={action.href} aria-current={path.startsWith(action.href) ? 'page' : undefined}><span class="dock-icon"><Icon name={action.icon} /></span><span>{action.label}</span></a>)}
+</nav>

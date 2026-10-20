@@ -1,0 +1,16 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import DemoNote from '../components/DemoNote.astro';
+import FilterBar from '../components/FilterBar.astro';
+import Icon from '../components/Icon.astro';
+import { opportunities, formatDate } from '../data/municipal';
+import { official } from '../data/site';
+---
+<Shell title="Ayudas, subvenciones y empleo" description="Explora fichas de demostración de ayudas, formación, empleo público y subvenciones. Consulta siempre las bases y plazos oficiales.">
+  <div class="page-wrap">
+    <header class="page-intro"><h1>Oportunidades<br />para seguir adelante.</h1><p class="lead">Ayudas, empleo y formación. Un lugar para encontrar el siguiente paso.</p></header>
+    <DemoNote text="No hay convocatorias reales incorporadas. Todas las fichas y fechas límite siguientes son ejemplos, sin vigencia." />
+    <section data-filter-root><h2>Explorar convocatorias</h2><FilterBar label="Buscar ayuda o convocatoria" categories={['Ayudas', 'Subvenciones', 'Formación', 'Empleo público']} dates />{opportunities.map(o => <article class="opportunity-row" data-item data-category={o.category} data-date={o.deadline}><div><span class="badge">Ejemplo</span><p class="muted">{o.category}</p></div><div><h2>{o.title}</h2><p>{o.text}</p><p class="muted">Dirigido a: {o.audience}</p><details class="faq"><summary>Requisitos y documentación</summary><p>No existen bases para este ejemplo. Una ficha publicada enlazaría los documentos oficiales, los requisitos, el plazo y el canal de presentación.</p></details><a class="text-link" href={official.notices}>Buscar bases en el tablón oficial <Icon /></a></div><div><span class="small-note">Fecha límite ficticia</span><time datetime={o.deadline}>{formatDate(o.deadline)}</time><span class="small-note">Sin convocatoria real</span></div></article>)}</section>
+    <section class="section-space side-note"><h2>Antes de solicitar</h2><ol class="guide-list"><li>Lee las bases oficiales completas.</li><li>Comprueba a quién se dirige la convocatoria.</li><li>Confirma el plazo y la documentación.</li><li>Conserva tu justificante de presentación.</li></ol><div class="action-row"><a class="text-link" href="/tramites/ayudas/">Guía de ayudas <Icon /></a><a class="text-link" href="/sede/">Acceso a la sede <Icon /></a></div></section>
+  </div>
+</Shell>

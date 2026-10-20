@@ -1,0 +1,25 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import village from '../assets/pueblo.jpg';
+import { services, official } from '../data/site';
+const topics = [
+  { id: 'educacion', title: 'Crecer y aprender', text: 'Educación, conciliación y recursos para las familias. Consulta los centros y servicios en el directorio municipal.', label: 'Educación y servicios', href: official.services },
+  { id: 'salud', title: 'Cuidarnos, cerca', text: 'Centro médico, farmacia y contactos útiles. Confirma la atención y los horarios con cada servicio.', label: 'Ver teléfonos de salud', href: '#telefonos' },
+  { id: 'transporte', title: 'Ir y venir', text: 'Planifica tu desplazamiento y consulta las opciones de transporte. Los horarios deben confirmarse con el operador.', label: 'Cómo llegar y moverse', href: '/visita/#llegar' },
+  { id: 'sociales', title: 'Cuando necesitas apoyo', text: 'El Ayuntamiento puede orientarte sobre servicios sociales y recursos de atención disponibles.', label: 'Solicitar información', href: '/contacto/' },
+  { id: 'vivienda', title: 'Hacer de aquí tu casa', text: 'Padrón, vivienda e información municipal para empezar una nueva etapa en el pueblo.', label: 'Guía de empadronamiento', href: '/tramites/padron/' },
+  { id: 'residuos', title: 'Un pueblo que cuidamos', text: 'Consulta las condiciones de recogida de residuos y voluminosos antes de depositarlos en la vía pública.', label: 'Avisos de servicios', href: '/avisos/' },
+  { id: 'instalaciones', title: 'Tiempo para disfrutar', text: 'Deporte, actividades y espacios para compartir. Explora las posibilidades y consulta sus condiciones.', label: 'Instalaciones municipales', href: '/instalaciones/' },
+  { id: 'asociaciones', title: 'Hacer pueblo juntos', text: 'Asociaciones, iniciativas y formas de participar en la vida comunitaria.', label: 'Participación ciudadana', href: '/participa/' },
+];
+---
+<Shell title="Vivir en Navaluenga" description="Información práctica para el día a día: educación, salud, transporte, vivienda, residuos, instalaciones, asociaciones y teléfonos útiles.">
+  <div class="page-wrap">
+    <header class="living-hero"><h1>Un pueblo para todas tus etapas.</h1><figure class="living-panorama"><Photo src={village} alt="Navaluenga, entre las montañas y la vegetación del valle del Alberche." sizes="100vw" eager /></figure></header>
+    <div class="living-intro"><p class="lead">La vida cotidiana merece las cosas fáciles. Encuentra información para ti, para tu familia y para lo que viene.</p><nav class="living-index" aria-label="Información para vecinos">{topics.map(t => <a href={`#${t.id}`}>{({ educacion: 'Educación', salud: 'Salud', transporte: 'Transporte', sociales: 'Servicios sociales', vivienda: 'Vivienda', residuos: 'Residuos', instalaciones: 'Instalaciones', asociaciones: 'Asociaciones' } as Record<string,string>)[t.id]}</a>)}<a href="#telefonos">Teléfonos útiles</a></nav></div>
+    <div class="living-topics section-space">{topics.map(t => <article id={t.id}><h2>{t.title}</h2><p>{t.text}</p><a class="text-link" href={t.href}>{t.label} <Icon /></a></article>)}</div>
+    <section class="section-space two-thirds"><div id="telefonos"><h2>Teléfonos a mano</h2><ul class="phone-list">{services.map(s => <li><span>{s.name}</span><a href={`tel:${s.tel}`}>{s.phone} <Icon /></a></li>)}</ul><p class="small-note">Datos del directorio municipal consultados el 30 de septiembre de 2026. <a class="text-link" href={official.services}>Consultar la fuente oficial</a></p></div><aside class="side-note faq"><h2>Lo que más nos preguntáis</h2><details><summary>Acabo de llegar, ¿por dónde empiezo?</summary><p>Consulta la guía de empadronamiento y el directorio de servicios. El Ayuntamiento puede orientarte sobre tu caso.</p></details><details><summary>¿Dónde comunico una avería?</summary><p>Contacta con el Ayuntamiento por sus canales oficiales. El recorrido de incidencias de esta web es una demostración.</p><a class="text-link" href="/contacto/">Ver contacto oficial</a></details></aside></section>
+  </div>
+</Shell>

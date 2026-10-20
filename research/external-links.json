@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-09-30T10:50:52.537Z",
+  "results": [
+    {
+      "url": "https://aytonavaluenga.es/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/?post_type=tribe_events&eventDisplay=month",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/?post_type=tribe_events&eventDisplay=month"
+    },
+    {
+      "url": "https://aytonavaluenga.es/buzon-de-sugerencias/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/buzon-de-sugerencias/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/contacto/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/contacto/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/documentacion-en-periodo-de-informacion-publica/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/documentacion-en-periodo-de-informacion-publica/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/entorno-y-naturaleza-2/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/entorno-y-naturaleza-2/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/gastronomia/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/gastronomia/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/ocio/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/ocio/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/puente-romanico/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/puente-romanico/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/que_ver/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/que_ver/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/senderismo/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/senderismo/"
+    },
+    {
+      "url": "https://aytonavaluenga.es/servicios/",
+      "status": 200,
+      "finalURL": "https://aytonavaluenga.es/servicios/"
+    },
+    {
+      "url": "https://navaluenga.sedelectronica.es/",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.turismoavila.com/",
+      "status": 200,
+      "finalURL": "https://www.turismoavila.com/web/inicio/"
+    }
+  ]
+}

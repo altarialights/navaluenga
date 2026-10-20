@@ -1,0 +1,27 @@
+---
+import { municipality, official } from '../data/site';
+import QuickDock from './QuickDock.astro';
+---
+<footer class="site-footer">
+  <div class="footer-sections">
+    <div><h2>Descubrir</h2><a href="/experiencias/">Turismo y experiencias</a><a href="/historia/">Historia y patrimonio</a><a href="/mapa/">Mapa interactivo</a><a href="/empresas/">Empresas y comercios</a></div>
+    <div><h2>Vivir aquí</h2><a href="/vivir/">Información práctica</a><a href="/agenda/">Agenda municipal</a><a href="/instalaciones/">Instalaciones y reservas</a><a href="/avisos/">Avisos municipales</a></div>
+    <div><h2>Resolver</h2><a href="/tramites/">Trámites y servicios</a><a href="/sede/">Sede electrónica</a><a href="/incidencias/">Incidencias ciudadanas</a><a href="/ayudas/">Ayudas y empleo</a></div>
+    <div><h2>Ayuntamiento</h2><a href="/contacto/">Contacto y atención</a><a href="/participa/">Participación ciudadana</a><a href="/buscar/">Buscar en la web</a><a href={official.home}>Web municipal oficial ↗</a></div>
+  </div>
+  <div class="footer-main">
+    <a class="footer-brand" href="/" aria-label="Navaluenga, inicio">NAVALUENGA</a>
+    <p>La vida entre dos orillas.</p>
+    <nav aria-label="Información del sitio">
+      <a href="/contacto/">Contacto</a>
+      <a href="/accesibilidad/">Accesibilidad</a>
+      <a href="/privacidad/">Privacidad</a>
+      <a href="/creditos/">Créditos</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>Previsualización del proyecto · <a href={official.home}>Web municipal oficial</a></p>
+    <a href={`tel:${municipality.tel}`}>Ayuntamiento · {municipality.phone}</a>
+  </div>
+</footer>
+<QuickDock />

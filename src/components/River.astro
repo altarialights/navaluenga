@@ -1,0 +1,21 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import river from '../assets/alberche.jpg';
+import valley from '../assets/valle.jpg';
+import { municipality } from '../data/site';
+---
+<section id="descubrir" class="river-section section-pad" aria-labelledby="river-title">
+  <div class="river-copy">
+    <p class="section-label"><span>01</span> A orillas del Alberche</p>
+    <h2 id="river-title" class="editorial-heading" data-reveal>Aquí, el agua<br class="desktop-break" /> marca el ritmo.</h2>
+    <p class="serif-intro">Piscinas naturales, paseos de ribera<br class="desktop-break" /> y tiempo para disfrutar del valle.</p>
+    <figure class="river-landscape"><Photo src={valley} alt="El pueblo de Navaluenga entre árboles, al pie de la sierra." /><figcaption>Un pueblo entre el río y la sierra.</figcaption></figure>
+    <nav class="inline-links" aria-label="Descubre el río">
+      <a href="/rio/#piscinas">Piscinas naturales <Icon /></a>
+      <a href="/rio/#antes-de-ir">Antes de ir <Icon /></a>
+      <a href={municipality.bridgeMap}>Cómo llegar <Icon /></a>
+    </nav>
+  </div>
+  <figure class="river-portrait"><Photo src={river} alt="El agua del Alberche discurre junto a los árboles de la ribera en Navaluenga." /><figcaption>El Alberche, parte de nuestra vida.</figcaption></figure>
+</section>

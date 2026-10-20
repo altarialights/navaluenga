@@ -1,0 +1,13 @@
+{
+  "frame": "https://www.openstreetmap.org/export/embed.html?bbox=-4.716%2C40.403999999999996%2C-4.7%2C40.414&layer=mapnik&marker=40.409%2C-4.708",
+  "frames": [
+    "http://127.0.0.1:4322/mapa/",
+    "chrome-error://chromewebdata/"
+  ],
+  "errors": [
+    {
+      "url": "https://www.openstreetmap.org/export/embed.html?bbox=-4.716%2C40.403999999999996%2C-4.7%2C40.414&layer=mapnik&marker=40.409%2C-4.708",
+      "error": "net::ERR_NETWORK_ACCESS_DENIED"
+    }
+  ]
+}

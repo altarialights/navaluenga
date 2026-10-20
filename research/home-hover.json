@@ -1,0 +1,23 @@
+[
+  {
+    "width": 1440,
+    "touch": false,
+    "background": "rgb(246, 241, 229)",
+    "color": "rgb(18, 55, 40)",
+    "hoverCapable": true
+  },
+  {
+    "width": 390,
+    "touch": false,
+    "background": "rgb(246, 241, 229)",
+    "color": "rgb(18, 55, 40)",
+    "hoverCapable": true
+  },
+  {
+    "width": 390,
+    "touch": true,
+    "background": "rgba(18, 55, 40, 0.8)",
+    "color": "rgb(246, 241, 229)",
+    "hoverCapable": false
+  }
+]

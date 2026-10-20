@@ -1,0 +1,11 @@
+---
+import Icon from '../Icon.astro';
+const links = [
+  ['Hablar con el Ayuntamiento', 'Estamos para orientarte.', '/contacto/'],
+  ['Hacer una gestión online', 'Continúa en la sede oficial.', '/sede/'],
+  ['Preparar mi visita', 'Tu próxima escapada empieza aquí.', '/visita/'],
+];
+---
+<section class="home-closing section-pad" aria-labelledby="home-closing-title">
+  <div><h2 id="home-closing-title">Cerca,<br /><em>cuando nos necesitas.</em></h2><p>En el pueblo. Y al otro lado de la pantalla.</p></div><nav aria-label="Continuar desde la portada">{links.map(([title, text, href]) => <a href={href}><span><strong>{title}</strong><small>{text}</small></span><Icon /></a>)}</nav>
+</section>

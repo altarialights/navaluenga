@@ -1,0 +1,20 @@
+---
+import Shell from '../components/MunicipalShell.astro';
+import Icon from '../components/Icon.astro';
+import { official } from '../data/site';
+const accesses = [
+  ['Catálogo de trámites', 'Encuentra el procedimiento que necesitas.'],
+  ['Registro electrónico', 'Presenta solicitudes en el canal oficial.'],
+  ['Mis expedientes', 'Consulta tus gestiones tras identificarte.'],
+  ['Notificaciones', 'Revisa las comunicaciones administrativas.'],
+  ['Tablón oficial', 'Consulta publicaciones en la sede municipal.'],
+  ['Perfil del contratante', 'Información de contratación pública.'],
+];
+---
+<Shell title="Sede electrónica" description="Accede a la sede electrónica oficial de Navaluenga. Orientación para trámites, registro, expedientes, notificaciones y contratación." class="forest-page">
+  <div class="page-wrap">
+    <header class="sede-intro"><h1>Tu Ayuntamiento.<br />También online.</h1><div><p class="lead">Una puerta de entrada a tus gestiones, estés donde estés.</p><a class="button button-sun" href={official.sede}>Acceder a la sede oficial <Icon /></a><p class="small-note">navaluenga.sedelectronica.es</p></div></header>
+    <nav class="link-rows sede-access" aria-label="Servicios de la sede">{accesses.map(([title, description]) => <a href={title === 'Perfil del contratante' ? `${official.sede}contractor-profile-list` : official.sede}><span><strong>{title}</strong><small>{description}</small><small>Acceso desde la sede oficial</small></span><Icon /></a>)}</nav>
+    <section class="sede-help"><div class="two-thirds"><div><h2>Antes de acceder</h2><p>La propia sede indica los sistemas de identificación admitidos y los requisitos de cada procedimiento. Prepara tus documentos y guarda el justificante al terminar.</p><a class="text-link" href="/tramites/">Consultar las guías de trámites <Icon /></a></div><div><h3>¿Necesitas ayuda?</h3><p>Contacta con el Ayuntamiento para orientación sobre identificación, facturación electrónica o presentación de documentos.</p><a class="text-link" href="/contacto/">Contactar <Icon /></a></div></div></section>
+  </div>
+</Shell>
